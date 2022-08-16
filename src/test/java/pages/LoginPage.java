@@ -31,11 +31,11 @@ public class LoginPage extends SeleniumUtility {
 
     public void login_application() throws Exception {
 
-//        String usrname = readPropertyfile("test.properties", "username");
-//        String paswrd = readPropertyfile("test.properties", "password");
+        String usrname = readPropertyfile("test.properties", "username");
+        String paswrd = readPropertyfile("test.properties", "password");
         launchApplication();
-        usrName.sendKeys("test_user");
-        passwrd.sendKeys("test123");
+        usrName.sendKeys(usrname);
+        passwrd.sendKeys(paswrd);
         loginbtn.click();
     }
 
