@@ -13,7 +13,6 @@ import java.util.Properties;
 
 public class LoginPage extends SeleniumUtility {
 
-
     /**
      * Login Page
      **/
@@ -27,15 +26,15 @@ public class LoginPage extends SeleniumUtility {
     @FindBy(xpath = "//*[@class='button-label']//..//*[text()='Login']")
     private WebElement loginbtn;
 
-
-
     public void login_application() throws Exception {
 
         String usrname = readPropertyfile("test.properties", "username");
         String paswrd = readPropertyfile("test.properties", "password");
         launchApplication();
-        usrName.sendKeys(usrname);
-        passwrd.sendKeys(paswrd);
+
+        SendtexttoElement(usrName,usrname);
+        SendtexttoElement(passwrd,paswrd);
+
         loginbtn.click();
     }
 

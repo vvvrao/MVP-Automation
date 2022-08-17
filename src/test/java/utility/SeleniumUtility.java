@@ -1,11 +1,21 @@
 package utility;
 
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.*;
+import org.testng.Assert;
+import runner.ScenarioLogger;
 
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 
 
 public class SeleniumUtility {
@@ -13,6 +23,7 @@ public class SeleniumUtility {
 
     public static WebDriver driver;
     public static String webURL;
+
 
     public SeleniumUtility() {
 
@@ -58,6 +69,591 @@ public class SeleniumUtility {
         } catch (Exception e) {
             throw new NoSuchFieldException("Cannot find key: " + key + " in property file.");
         }
+    }
+
+    public void SendtexttoElement(WebElement ele, String value){
+
+        try {
+            ele.sendKeys(value);
+        }
+        catch(ElementNotInteractableException e)
+
+        {
+            throw e;
+        }
+
+    }
+
+    public void switchTab(int i){
+        List<String> tabs1 = new ArrayList<String>(driver.getWindowHandles());
+        System.out.println("Windiows are" +tabs1);
+        driver.switchTo().window(tabs1.get(i));
+    }
+
+
+    public static void switchtoNewwindow() {
+        String parentWinHandle = driver.getWindowHandle();
+        // System.out.println(parentWinHandle);
+        Set<String> winHandles = driver.getWindowHandles();
+        // Loop through all handles
+        for (String handle : winHandles) {
+            System.out.println(handle);
+            if (!handle.equals(parentWinHandle)) {
+                driver.switchTo().window(handle);
+                break;
+            }
+        }
+    }
+
+
+    public static  void clickElement(WebElement element) {
+        try {
+
+            element.click();
+            ScenarioLogger.attachScreenshot("Screen:" + element);
+        }
+        catch(ElementNotInteractableException e)
+        {
+            ScenarioLogger.attachScreenshot("Screen:" + element);
+            e.getMessage();
+
+        }
+    }
+
+    public static  void clickElement1(WebDriver driver1, WebElement element) {
+        try {
+
+            element.click();
+            ScenarioLogger.attachScreenshot("screen");
+        }
+        catch(ElementNotInteractableException e)
+        {
+            ScenarioLogger.attachScreenshot( "screen");
+            e.getMessage();
+
+        }
+    }
+
+
+
+    protected void sendTextToElement(WebElement element, String text) throws InterruptedException {
+
+        try {
+            angularwait();
+
+
+
+            element.clear();
+            element.sendKeys(text);
+            ScenarioLogger.attachScreenshot(text);
+        }
+
+        catch(NoSuchElementException e) {
+            ScenarioLogger.attachScreenshot(text);
+            throw e;
+
+        }
+    }
+
+
+    protected void sendTextToElementwithoutAngular(WebElement element, String text) throws InterruptedException {
+
+        try {
+
+            Thread.sleep(5000);
+
+            element.clear();
+            element.sendKeys(text);
+        }
+
+        catch(ElementNotInteractableException e) {
+            ScenarioLogger.attachScreenshot(text);
+            throw e;
+
+        }
+    }
+    protected void sendTab(WebElement element)
+    {
+        angularwait();
+        element.sendKeys(Keys.TAB);
+    }
+
+    protected static void actionClickAndType(WebElement element, String elementName, String Value)
+            throws IOException {
+
+        try {
+
+            Actions action = new Actions(driver);
+            action.click(element).sendKeys(Value, Keys.TAB).build().perform();
+
+        } catch (AssertionError error) {
+
+            Assert.fail("unable to click and type " + "\'" + elementName + "\'");
+
+
+            throw error;
+        } catch (Exception e) {
+
+            throw e;
+        }
+
+    }
+
+    protected static void actionClick(WebElement element)
+            throws IOException {
+
+        try {
+
+            Actions action = new Actions(driver);
+            action.click(element).build().perform();
+
+        } catch (AssertionError error) {
+
+            Assert.fail("unable to click");
+
+
+            throw error;
+        } catch (Exception e) {
+
+            throw e;
+        }
+
+    }
+
+    protected void refreshPg()
+    {
+        driver.navigate().refresh();
+    }
+
+    protected void selectDropdownValue_Text(WebElement element, String selectVal) {
+        angularwait();
+
+        Select selectelement = new Select(element);
+        selectelement.selectByVisibleText(selectVal);
+    }
+
+
+    public static void selectValueInDropDown(String value)
+    {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String jsCmd = "document.getElementsByName('show')[0].value='" + value + "'";
+        js.executeScript(jsCmd);
+    }
+    protected boolean iselementDisplayed(WebElement element) {
+        angularwait();
+
+        try {
+            return element.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    protected boolean iselementnotDisplayed(WebElement element) {
+        angularwait();
+        boolean flag=false;
+        try {
+
+            boolean b= element.isDisplayed();
+            if (b) {
+
+                flag= false;
+            }
+
+        } catch (Exception e) {
+            flag= true;
+        }
+        return flag;
+    }
+
+    protected boolean iselementdisabled(WebElement element) {
+        angularwait();
+
+        try {
+            element.isEnabled();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+
+    protected boolean iselementenabled(WebElement element) {
+        angularwait();
+
+        try {
+            element.isEnabled();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    protected boolean iselementsDisplayed(List<WebElement> elements) {
+        angularwait();
+        try {
+            if (elements.size() > 0) {
+                return true;
+            } else
+                return false;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    protected static void enterValueWithDelay(String value, long delayInMilliseconds,WebElement ele)
+    {
+        try {
+            if (value != null && value.length() > 0 &&
+                    delayInMilliseconds > 0)
+            {
+
+                int charIndex = 0;
+                char[] valueCharsArray = value.toCharArray();
+
+
+                for (charIndex=0 ; charIndex < valueCharsArray.length ; charIndex++)
+
+                {
+                    char val= value.charAt(charIndex);
+
+                    ele.sendKeys(val + "");
+                    Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(delayInMilliseconds))
+                            .pollingEvery(Duration.ofMillis(delayInMilliseconds)).ignoring(NoSuchElementException.class);
+                }
+                ele = null;
+                valueCharsArray = null;
+
+            }
+        }
+        catch(NoSuchElementException e )
+        {
+
+            throw e;
+        }
+
+
+    }
+
+
+    protected String getTextfromelement(WebElement element) throws InterruptedException {
+        angularwait();
+        String textVal = element.getText();
+        return textVal;
+
+    }
+
+    public static boolean isTextVisibleonScreen(String text) throws InterruptedException {
+        angularwait();
+        try {
+            return driver.getPageSource().contains(text);
+        } catch (Exception e) {
+            return false;
+        }
+
+    }
+
+
+    protected String getTextfromAttribute(WebElement element, String attributeName) throws InterruptedException {
+        angularwait();
+        String textVal = element.getAttribute(attributeName);
+        return textVal;
+
+    }
+
+    protected void sendValuetoElement(WebElement element, String text) {
+        try {
+            angularwait();
+            Actions builder = new Actions(driver);
+            Action seriesOfActions = builder.moveToElement(element).build();
+            seriesOfActions.perform();
+            JavascriptExecutor jse = (JavascriptExecutor) driver;
+            jse.executeScript("arguments[0].value= arguments[1];", element, text);
+            ScenarioLogger.attachScreenshot("Screen:" + element);
+        }
+
+        catch(ElementNotInteractableException e) {
+            ScenarioLogger.attachScreenshot("Screen:" + element);
+            throw e;
+        }
+
+    }
+
+    public void verifyElementStatus(WebElement ele,String attr) throws InterruptedException {
+        String status = getTextfromAttribute(ele,attr);
+        if (status.equalsIgnoreCase("true"))
+            ScenarioLogger.log("Status is disabled");
+        else
+            ScenarioLogger.log("Status is enabled");
+    }
+
+    public static void mouseOverOnElement(WebElement element) throws IOException {
+        try {
+            angularwait();
+            Actions act = new Actions(driver);
+            act.moveToElement(element).build().perform();
+
+        } catch (Exception e) {
+
+            ScenarioLogger.log("unable to move");
+        }
+    }
+
+
+    public static void scrollIntoView(WebElement ele) throws IOException {
+        try {
+            angularwait();
+            ((JavascriptExecutor) driver).executeScript(
+                    "arguments[0].scrollIntoView({behavior: 'auto',block: 'center',inline: 'center'});", ele);
+        } catch (Exception e) {
+            ScenarioLogger.log("unable to move");
+        }
+    }
+
+
+
+    public static void validatetextinElement(WebElement ele,String exp) throws InterruptedException, IOException {
+        angularwait();
+
+        waitForElement(ele,"ele",100);
+
+        String actual=ele.getText();
+        ScenarioLogger.log("Actual is " +actual);
+        ScenarioLogger.log("Expected is " +exp);
+
+        boolean b = actual.contains(exp);
+
+        ScenarioLogger.attachScreenshot("Screen:" );
+
+        Assert.assertEquals(b,true);
+
+
+        ele=null;
+        exp=null;
+        actual=null;
+
+
+    }
+
+
+    public void validatetextinElement1(WebElement agentele,String expr) throws InterruptedException, IOException {
+        angularwait();
+
+
+        try {
+            waitForElement(agentele,"agentele",100);
+            String ac=agentele.getText();
+            ScenarioLogger.log("Actual is " +ac);
+            ScenarioLogger.log("Expected is " +expr);
+
+            boolean b = ac.contains(expr);
+
+            ScenarioLogger.attachScreenshot("Screen:" );
+
+            Assert.assertEquals(b, true);
+            ac=null;
+            expr=null;
+            agentele= null;
+        }
+        catch(InvalidElementStateException e)
+        {
+            throw e;
+        }
+
+
+    }
+
+
+
+
+    public void validatetextinElement2(WebElement agele,String exprn) throws InterruptedException, IOException {
+        angularwait();
+
+
+        try {
+            String ac2=agele.getText();
+            ScenarioLogger.log("Actual is " +ac2);
+            ScenarioLogger.log("Expected is " +exprn);
+
+            boolean b = ac2.contains(exprn);
+
+            ScenarioLogger.attachScreenshot("Screen:" );
+
+            Assert.assertEquals(b, true);
+            ac2=null;
+            agele=null;
+            exprn=null;
+
+        }
+        catch(InvalidElementStateException e)
+        {
+            throw e;
+        }
+
+
+    }
+
+    public void validatenotextinElement(WebElement ele,String exp) throws InterruptedException, IOException {
+        angularwait();
+        String actual=ele.getText();
+        ScenarioLogger.log("Actual is " +actual);
+        ScenarioLogger.log("Expected is " +exp);
+        Assert.assertEquals(actual.contains(exp), false, "status is updated");
+
+        ele=null;
+        exp=null;
+    }
+
+    public void actionValidatetextinElement(WebElement e,String ex) throws InterruptedException, IOException {
+        angularwait();
+        String actual=e.getAttribute("value");
+        ScenarioLogger.log(actual);
+        ScenarioLogger.log(ex);
+
+        boolean b = actual.contains(ex);
+        Assert.assertEquals(actual.contains(ex), false, "status is not updated");
+
+        e=null;
+        e=null;
+    }
+
+    public static void clickelebytext(String txt) throws InterruptedException, IOException {
+        angularwait();
+        WebElement eleName = driver.findElement(By.xpath("//*[contains(text(),'"+txt+"')]"));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(eleName).click(eleName);
+        actions.perform();
+        ScenarioLogger.attachScreenshot(
+                "Screen:" + eleName);
+
+    }
+
+
+    public static void waitTillPageLoad(WebDriver driver, int seconds) {
+
+        WebDriverWait wait = new WebDriverWait(driver, seconds);
+        JavascriptExecutor jsExec = (JavascriptExecutor) driver;
+
+        // Wait for Javascript to load
+        ExpectedCondition<Boolean> jsLoad = wd -> ((JavascriptExecutor) driver)
+                .executeScript("return document.readyState").toString().equals("complete");
+
+        // Get JS is Ready
+        boolean jsReady = (Boolean) jsExec.executeScript("return document.readyState").toString().equals("complete");
+
+        // Wait Javascript until it is Ready!
+        if (!jsReady) {
+            System.out.println("JS in NOT Ready!");
+
+            // Wait for Javascript to load
+            wait.until(jsLoad);
+
+        } else {
+            System.out.println("JS is Ready!");
+
+        }
+        System.out.println(" page is in ready state ");
+    }
+
+
+
+    public static void waitForElement(WebElement element, String eleName, int seconds)
+            throws IOException {
+        try {
+//			ScenarioLogger.log("---------Waiting for visibility of element---------" + element);
+
+            waitTillPageLoad(driver, 30);
+            Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(seconds))
+                    .pollingEvery(Duration.ofMillis(250)).ignoring(NoSuchElementException.class);
+            Assert.assertTrue(wait.until(ExpectedConditions.visibilityOf(element)) != null);
+
+//			ScenarioLogger.log("---------Element is visible---------" + element);
+            ScenarioLogger.attachScreenshot("Screen:" + eleName);
+        } catch (Exception e) {
+
+
+            ScenarioLogger.attachScreenshot("Screen:" + eleName);
+            throw e;
+        } catch (AssertionError e) {
+
+            ScenarioLogger.attachScreenshot("Screen:" + eleName);
+            throw e;
+        }
+
+
+
+    }
+
+    public static void angularwait()  {
+
+
+//		JavascriptExecutor jsdriver= (JavascriptExecutor) driver;
+//
+//		NgWebDriver ngDriver = new NgWebDriver(jsdriver);
+//
+//		ngDriver.waitForAngularRequestsToFinish();
+
+        WebDriverWait wait = new WebDriverWait(driver, 500);
+        wait.until(webDriver -> ((JavascriptExecutor)webDriver).executeScript("return document.readyState").equals("complete"));
+
+    }
+
+
+    public static void jsClick(WebElement element) {
+        try {
+            JavascriptExecutor executor = (JavascriptExecutor)driver;
+            executor.executeScript("arguments[0].click();", element);
+        }
+        catch(ElementNotInteractableException e)
+        {
+            ScenarioLogger.attachScreenshot("Screen:" + element);
+        }
+    }
+
+
+    public String generateRandomString(int n) {
+
+        // int n = 3;
+
+        // chose a Character random from this String
+        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvxyz";
+
+        // create StringBuffer size of AlphaNumericString
+        StringBuilder sb = new StringBuilder(n);
+
+        for (int i = 0; i < n; i++) {
+
+            // generate a random number between
+            // 0 to AlphaNumericString variable length
+            int index = (int) (AlphaNumericString.length() * Math.random());
+
+            // add Character one by one in end of sb
+            sb.append(AlphaNumericString.charAt(index));
+        }
+
+        return sb.toString();
+    }
+
+
+    public void validateempty(WebElement element)
+    {
+        String val= element.getText();
+
+
+        System.out.println("empty value "+val);
+
+        Assert.assertTrue(val.isEmpty());
+    }
+
+
+    public void validatenotempty(WebElement element)
+    {
+        String val= element.getText();
+
+        System.out.println("empty value "+val);
+        boolean b= val.isEmpty();
+        Assert.assertEquals(b, false, "value is populated");
+
     }
 
 }
