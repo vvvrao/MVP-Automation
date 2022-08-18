@@ -9,69 +9,49 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-
         <cucumber.version>7.0.0</cucumber.version>
-        <testng.version>7.4.0</testng.version>
         <report.pagetitle>MVP- VEP Automation report</report.pagetitle>
+        <testng.version>7.4.0</testng.version>
         <numberOfParallelTests>1</numberOfParallelTests>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
-
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>3.0.0-M4</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                        <configuration>
-                            <properties>
-                                <property>
-                                    <name>usedefaultlisteners</name>
-                                    <!-- disabled default listeners because we don't use them. You can always enable them if you want -->
-                                    <value>false</value>
-                                </property>
-                                <property>
-                                    <name>dataproviderthreadcount</name>
-                                    <value>${numberOfParallelTests}</value>
-                                </property>
-                            </properties>
-                            <forkCount>0</forkCount>
-                            <disableXmlReport>true</disableXmlReport>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>com.trivago.rta</groupId>
-                <artifactId>cluecumber-report-plugin</artifactId>
-                <version>2.3.4</version>
-                <executions>
-                    <execution>
-                        <id>report</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>reporting</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <sourceJsonReportDirectory>${project.build.directory}/cucumber-report</sourceJsonReportDirectory>
-                    <generatedHtmlReportDirectory>${project.build.directory}/generated-report</generatedHtmlReportDirectory>
-                    <customPageTitle>${report.pagetitle}</customPageTitle>
-                </configuration>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
             </plugin>
         </plugins>
     </build>
+    <!--            <plugin>-->
+    <!--                <groupId>net.masterthought</groupId>-->
+    <!--                <artifactId>maven-cucumber-reporting</artifactId>-->
+    <!--                <version>4.8.0</version>-->
+    <!--                <executions>-->
+    <!--                    <execution>-->
+    <!--                        <id>execution</id>-->
+    <!--                        <phase>verify</phase>-->
+    <!--                        <goals>-->
+    <!--                            <goal>generate</goal>-->
+    <!--                        </goals>-->
+    <!--                        <configuration>-->
+    <!--                            <projectName>Cucumber HTML Reports</projectName>-->
+    <!--                            <outputDirectory>${project.build.directory}/cucumber-html-reports</outputDirectory>-->
+    <!--                            <inputDirectory>${project.build.directory}</inputDirectory>-->
+    <!--                            <jsonFiles>-->
+    <!--                                <param>**/cucumber.json</param>-->
+    <!--                            </jsonFiles>-->
+    <!--                        </configuration>-->
+    <!--                    </execution>-->
+    <!--                </executions>-->
+    <!--            </plugin>-->
+    <!--        </plugins>-->
+    <!--    </build>-->
 
-<dependencies>
-
+    <dependencies>
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
         <dependency>
             <groupId>io.cucumber</groupId>
@@ -79,6 +59,14 @@
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
+
+
+        <!--        <dependency>-->
+        <!--            <groupId>junit</groupId>-->
+        <!--           <artifactId>junit</artifactId>-->
+        <!--            <version>4.11</version>-->
+        <!--           <scope>test</scope>-->
+        <!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
@@ -88,45 +76,70 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-picocontainer</artifactId>
-            <version>${cucumber.version}</version>
-            <scope>test</scope>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>io.cucumber</groupId>-->
+        <!--            <artifactId>cucumber-picocontainer</artifactId>-->
+        <!--            <version>${cucumber.version}</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
             <version>${cucumber.version}</version>
-            <scope>test</scope>
+            <scope>compile</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <!--https://mvnrepository.com/artifact/org.testng/testng-->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.assertj</groupId>-->
+        <!--            <artifactId>assertj-core</artifactId>-->
+        <!--            <version>3.16.1</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>s
+
+        <!- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
         <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>3.16.1</version>
+            <groupId>net.masterthought</groupId>
+            <artifactId>cucumber-reporting</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
 
+
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.20</version>
-        </dependency>
-        <dependency>
-            <groupId>org.lucee</groupId>
-            <artifactId>jsch</artifactId>
-            <version>0.1.53</version>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>7.5.0</version>
+            <scope>compile</scope>
         </dependency>
 
+
+        <!--        <dependency>-->
+        <!--            <groupId>io.cucumber</groupId>-->
+        <!--            <artifactId>cucumber-java8</artifactId>-->
+        <!--            <version>3.0.2</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>io.cucumber</groupId>-->
+        <!--            <artifactId>cucumber-junit</artifactId>-->
+        <!--            <version>3.0.2</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
+
     </dependencies>
+
 </project>

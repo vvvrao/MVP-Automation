@@ -1,17 +1,18 @@
 package utility;
 
+import org.testng.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.*;
-import org.testng.Assert;
-import runner.ScenarioLogger;
+
+//import runner.ScenarioLogger;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.time.Duration;
+//import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -20,24 +21,21 @@ import java.util.Set;
 
 public class SeleniumUtility {
 
-
     public static WebDriver driver;
     public static String webURL;
 
-
     public SeleniumUtility() {
-
-        // Allocate global driver reference to local driver
-        this.driver =  new ChromeDriver();
+        this.driver = new ChromeDriver();
         // Initialize Ajax page initialisation
         PageFactory.initElements(driver, this);
     }
 
-    public void launchApplication() throws Exception {
+
+    public static void launchApplication() throws Exception {
 
         webURL = readPropertyfile("test.properties", "web_URL");
         System.out.println(webURL);
-//        driver = new ChromeDriver();
+
         driver.manage().window().maximize();
         driver.get(webURL);
     }
@@ -60,7 +58,7 @@ public class SeleniumUtility {
      * We have only test.properties in the project so we can use this method to get
      * value from given key
      */
-    public synchronized String readPropertyfile(String filename, String key) throws NoSuchFieldException {
+    public static synchronized String readPropertyfile(String filename, String key) throws NoSuchFieldException {
         String filePath = System.getProperty("user.dir") + "/src/test/java/resources/properties/" + filename;
         try {
             Properties properties = new Properties();
@@ -71,7 +69,7 @@ public class SeleniumUtility {
         }
     }
 
-    public void SendtexttoElement(WebElement ele, String value){
+    public static void SendtexttoElement(WebElement ele, String value){
 
         try {
             ele.sendKeys(value);
@@ -110,11 +108,11 @@ public class SeleniumUtility {
         try {
 
             element.click();
-            ScenarioLogger.attachScreenshot("Screen:" + element);
+//            ScenarioLogger.log("Screen:" + element);
         }
         catch(ElementNotInteractableException e)
         {
-            ScenarioLogger.attachScreenshot("Screen:" + element);
+//            ScenarioLogger.log("Screen:" + element);
             e.getMessage();
 
         }
@@ -124,11 +122,11 @@ public class SeleniumUtility {
         try {
 
             element.click();
-            ScenarioLogger.attachScreenshot("screen");
+//            ScenarioLogger.log("screen");
         }
         catch(ElementNotInteractableException e)
         {
-            ScenarioLogger.attachScreenshot( "screen");
+//            ScenarioLogger.log( "screen");
             e.getMessage();
 
         }
@@ -140,16 +138,13 @@ public class SeleniumUtility {
 
         try {
             angularwait();
-
-
-
             element.clear();
             element.sendKeys(text);
-            ScenarioLogger.attachScreenshot(text);
+//            ScenarioLogger.log(text);
         }
 
         catch(NoSuchElementException e) {
-            ScenarioLogger.attachScreenshot(text);
+//            ScenarioLogger.log(text);
             throw e;
 
         }
@@ -167,7 +162,7 @@ public class SeleniumUtility {
         }
 
         catch(ElementNotInteractableException e) {
-            ScenarioLogger.attachScreenshot(text);
+//            ScenarioLogger.log(text);
             throw e;
 
         }
@@ -179,7 +174,7 @@ public class SeleniumUtility {
     }
 
     protected static void actionClickAndType(WebElement element, String elementName, String Value)
-            throws IOException {
+            throws Exception {
 
         try {
 
@@ -200,7 +195,7 @@ public class SeleniumUtility {
     }
 
     protected static void actionClick(WebElement element)
-            throws IOException {
+            throws Exception {
 
         try {
 
@@ -318,8 +313,8 @@ public class SeleniumUtility {
                     char val= value.charAt(charIndex);
 
                     ele.sendKeys(val + "");
-                    Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(delayInMilliseconds))
-                            .pollingEvery(Duration.ofMillis(delayInMilliseconds)).ignoring(NoSuchElementException.class);
+//                    Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(delayInMilliseconds))
+//                            .pollingEvery(Duration.ofMillis(delayInMilliseconds)).ignoring(NoSuchElementException.class);
                 }
                 ele = null;
                 valueCharsArray = null;
@@ -369,23 +364,17 @@ public class SeleniumUtility {
             seriesOfActions.perform();
             JavascriptExecutor jse = (JavascriptExecutor) driver;
             jse.executeScript("arguments[0].value= arguments[1];", element, text);
-            ScenarioLogger.attachScreenshot("Screen:" + element);
+//            ScenarioLogger.log("Screen:" + element);
         }
 
         catch(ElementNotInteractableException e) {
-            ScenarioLogger.attachScreenshot("Screen:" + element);
+//            ScenarioLogger.log("Screen:" + element);
             throw e;
         }
 
     }
 
-    public void verifyElementStatus(WebElement ele,String attr) throws InterruptedException {
-        String status = getTextfromAttribute(ele,attr);
-        if (status.equalsIgnoreCase("true"))
-            ScenarioLogger.log("Status is disabled");
-        else
-            ScenarioLogger.log("Status is enabled");
-    }
+
 
     public static void mouseOverOnElement(WebElement element) throws IOException {
         try {
@@ -395,7 +384,7 @@ public class SeleniumUtility {
 
         } catch (Exception e) {
 
-            ScenarioLogger.log("unable to move");
+//            ScenarioLogger.log("unable to move");
         }
     }
 
@@ -406,34 +395,13 @@ public class SeleniumUtility {
             ((JavascriptExecutor) driver).executeScript(
                     "arguments[0].scrollIntoView({behavior: 'auto',block: 'center',inline: 'center'});", ele);
         } catch (Exception e) {
-            ScenarioLogger.log("unable to move");
+//            ScenarioLogger.log("unable to move");
         }
     }
 
 
 
-    public static void validatetextinElement(WebElement ele,String exp) throws InterruptedException, IOException {
-        angularwait();
-
-        waitForElement(ele,"ele",100);
-
-        String actual=ele.getText();
-        ScenarioLogger.log("Actual is " +actual);
-        ScenarioLogger.log("Expected is " +exp);
-
-        boolean b = actual.contains(exp);
-
-        ScenarioLogger.attachScreenshot("Screen:" );
-
-        Assert.assertEquals(b,true);
-
-
-        ele=null;
-        exp=null;
-        actual=null;
-
-
-    }
+//
 
 
     public void validatetextinElement1(WebElement agentele,String expr) throws InterruptedException, IOException {
@@ -441,14 +409,14 @@ public class SeleniumUtility {
 
 
         try {
-            waitForElement(agentele,"agentele",100);
+
             String ac=agentele.getText();
-            ScenarioLogger.log("Actual is " +ac);
-            ScenarioLogger.log("Expected is " +expr);
+//            ScenarioLogger.log("Actual is " +ac);
+//            ScenarioLogger.log("Expected is " +expr);
 
             boolean b = ac.contains(expr);
 
-            ScenarioLogger.attachScreenshot("Screen:" );
+//            ScenarioLogger.log("Screen:" );
 
             Assert.assertEquals(b, true);
             ac=null;
@@ -472,12 +440,12 @@ public class SeleniumUtility {
 
         try {
             String ac2=agele.getText();
-            ScenarioLogger.log("Actual is " +ac2);
-            ScenarioLogger.log("Expected is " +exprn);
+//            ScenarioLogger.log("Actual is " +ac2);
+//            ScenarioLogger.log("Expected is " +exprn);
 
             boolean b = ac2.contains(exprn);
 
-            ScenarioLogger.attachScreenshot("Screen:" );
+//            ScenarioLogger.log("Screen:" );
 
             Assert.assertEquals(b, true);
             ac2=null;
@@ -496,10 +464,10 @@ public class SeleniumUtility {
     public void validatenotextinElement(WebElement ele,String exp) throws InterruptedException, IOException {
         angularwait();
         String actual=ele.getText();
-        ScenarioLogger.log("Actual is " +actual);
-        ScenarioLogger.log("Expected is " +exp);
-        Assert.assertEquals(actual.contains(exp), false, "status is updated");
-
+//        ScenarioLogger.log("Actual is " +actual);
+//        ScenarioLogger.log("Expected is " +exp);
+//        Assert.assertEquals(actual.contains(exp), false, "status is updated");
+        Assert.assertEquals(actual.contains(exp),false);
         ele=null;
         exp=null;
     }
@@ -507,11 +475,11 @@ public class SeleniumUtility {
     public void actionValidatetextinElement(WebElement e,String ex) throws InterruptedException, IOException {
         angularwait();
         String actual=e.getAttribute("value");
-        ScenarioLogger.log(actual);
-        ScenarioLogger.log(ex);
+//        ScenarioLogger.log(actual);
+//        ScenarioLogger.log(logex);
 
         boolean b = actual.contains(ex);
-        Assert.assertEquals(actual.contains(ex), false, "status is not updated");
+        Assert.assertEquals(actual.contains(ex), false);
 
         e=null;
         e=null;
@@ -523,8 +491,8 @@ public class SeleniumUtility {
         Actions actions = new Actions(driver);
         actions.moveToElement(eleName).click(eleName);
         actions.perform();
-        ScenarioLogger.attachScreenshot(
-                "Screen:" + eleName);
+//        ScenarioLogger.log(
+//                "Screen:" + eleName);
 
     }
 
@@ -535,8 +503,8 @@ public class SeleniumUtility {
         JavascriptExecutor jsExec = (JavascriptExecutor) driver;
 
         // Wait for Javascript to load
-        ExpectedCondition<Boolean> jsLoad = wd -> ((JavascriptExecutor) driver)
-                .executeScript("return document.readyState").toString().equals("complete");
+//        ExpectedCondition<Boolean> jsLoad = wd -> ((JavascriptExecutor) driver)
+//                .executeScript("return document.readyState").toString().equals("complete");
 
         // Get JS is Ready
         boolean jsReady = (Boolean) jsExec.executeScript("return document.readyState").toString().equals("complete");
@@ -546,7 +514,7 @@ public class SeleniumUtility {
             System.out.println("JS in NOT Ready!");
 
             // Wait for Javascript to load
-            wait.until(jsLoad);
+//            wait.until(jsLoad);
 
         } else {
             System.out.println("JS is Ready!");
@@ -558,25 +526,25 @@ public class SeleniumUtility {
 
 
     public static void waitForElement(WebElement element, String eleName, int seconds)
-            throws IOException {
+            throws Exception {
         try {
 //			ScenarioLogger.log("---------Waiting for visibility of element---------" + element);
 
             waitTillPageLoad(driver, 30);
-            Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(seconds))
-                    .pollingEvery(Duration.ofMillis(250)).ignoring(NoSuchElementException.class);
-            Assert.assertTrue(wait.until(ExpectedConditions.visibilityOf(element)) != null);
+//            Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(seconds))
+//                    .pollingEvery(Duration.ofMillis(250)).ignoring(NoSuchElementException.class);
+//            Assert.assertTrue(wait.until(ExpectedConditions.visibilityOf(element)) != null);
 
-//			ScenarioLogger.log("---------Element is visible---------" + element);
-            ScenarioLogger.attachScreenshot("Screen:" + eleName);
+////			ScenarioLogger.log("---------Element is visible---------" + element);
+//            ScenarioLogger.log("Screen:" + eleName);
         } catch (Exception e) {
 
 
-            ScenarioLogger.attachScreenshot("Screen:" + eleName);
+//            ScenarioLogger.log("Screen:" + eleName);
             throw e;
         } catch (AssertionError e) {
 
-            ScenarioLogger.attachScreenshot("Screen:" + eleName);
+//            ScenarioLogger.log("Screen:" + eleName);
             throw e;
         }
 
@@ -594,21 +562,12 @@ public class SeleniumUtility {
 //		ngDriver.waitForAngularRequestsToFinish();
 
         WebDriverWait wait = new WebDriverWait(driver, 500);
-        wait.until(webDriver -> ((JavascriptExecutor)webDriver).executeScript("return document.readyState").equals("complete"));
+//        wait.until(webDriver -> ((JavascriptExecutor)webDriver).executeScript("return document.readyState").equals("complete"));
 
     }
 
 
-    public static void jsClick(WebElement element) {
-        try {
-            JavascriptExecutor executor = (JavascriptExecutor)driver;
-            executor.executeScript("arguments[0].click();", element);
-        }
-        catch(ElementNotInteractableException e)
-        {
-            ScenarioLogger.attachScreenshot("Screen:" + element);
-        }
-    }
+
 
 
     public String generateRandomString(int n) {
@@ -635,26 +594,9 @@ public class SeleniumUtility {
     }
 
 
-    public void validateempty(WebElement element)
-    {
-        String val= element.getText();
 
 
-        System.out.println("empty value "+val);
 
-        Assert.assertTrue(val.isEmpty());
-    }
-
-
-    public void validatenotempty(WebElement element)
-    {
-        String val= element.getText();
-
-        System.out.println("empty value "+val);
-        boolean b= val.isEmpty();
-        Assert.assertEquals(b, false, "value is populated");
-
-    }
 
 }
 
