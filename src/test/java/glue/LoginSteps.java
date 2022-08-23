@@ -5,6 +5,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
+
 import pages.LoginPage;
 
 
@@ -52,6 +53,22 @@ public class LoginSteps{
     @Then("User must be registered")
     public void user_must_be_registered() {
        //registeration not working
+    }
+
+//    @Then("user clicks on Accounts tab on dashboard")
+//    public void user_clicks_on_Accounts_tab_on_dashboard() throws InterruptedException {
+//
+//         lp.clickaccountsTab();
+//
+//    }
+    @Then("user gets prompted with my accounts page")
+    public void user_gets_prompted_with_my_accounts_page(){
+         lp.myaccountsvisible();
+    }
+
+    @Then("user click on {string} tab on dashboard")
+    public void user_click_on_tab_on_dashboard(String string) throws InterruptedException {
+         lp.clickTab(string);
     }
 
 
