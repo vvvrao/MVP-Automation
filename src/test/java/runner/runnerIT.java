@@ -4,6 +4,7 @@ package runner;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.testng.annotations.AfterClass;
 
@@ -20,9 +21,10 @@ import static utility.SeleniumUtility.driver;
 public class runnerIT {
 
 
-    @AfterClass
-    public static void teardown() {
-        driver.quit();
-    }
+//    @BeforeClass
+//    @AfterClass
+//    public static void teardown() {
+//        driver.quit();
+//    }
 
 }

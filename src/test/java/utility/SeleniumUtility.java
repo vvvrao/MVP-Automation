@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.*;
+import io.github.bonigarcia.wdm.*;
 
 //import runner.ScenarioLogger;
 
@@ -24,10 +25,17 @@ public class SeleniumUtility {
     public static WebDriver driver;
     public static String webURL;
 
+
+
+    public static String password = generateRandomString(10);
     public SeleniumUtility() {
-        this.driver = new ChromeDriver();
+        WebDriverManager.chromedriver().setup();
+         driver = new ChromeDriver();
+
+        this.driver= driver;
         // Initialize Ajax page initialisation
         PageFactory.initElements(driver, this);
+
     }
 
 
@@ -80,6 +88,55 @@ public class SeleniumUtility {
             throw e;
         }
 
+    }
+
+    public static void sendpasswordtoregistration(WebElement ele){
+        try{
+//            ele.gener
+            ele.sendKeys(password);
+        } catch (ElementNotInteractableException e) {
+
+            throw e;
+
+        }
+    }
+    public static void  sendtexttoregistration(WebElement ele){
+        try{
+            ele.sendKeys(generateRandomString(10));
+        }catch(ElementNotInteractableException e){
+            throw e;
+        }
+    }
+
+    public static void sendemailtoregistration(WebElement ele){
+        try{
+            ele.sendKeys(generateRandomString(10)+"@gmail.com");
+        } catch(ElementNotInteractableException e){
+            throw e;
+        }
+    }
+
+    public static String generateRandomString(int n) {
+
+       // n = 10;
+
+        // chose a Character random from this String
+        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ12345" + "abcdefghijklmnopqrstuvxyz67890" + "1234567890";
+
+        // create StringBuffer size of AlphaNumericString
+        StringBuilder sb = new StringBuilder(n);
+
+        for (int i = 0; i < n; i++) {
+
+            // generate a random number between
+            // 0 to AlphaNumericString variable length
+            int index = (int) (AlphaNumericString.length() * Math.random());
+
+            // add Character one by one in end of sb
+            sb.append(AlphaNumericString.charAt(index));
+        }
+
+        return sb.toString();
     }
 
     public void switchTab(int i){
@@ -137,7 +194,7 @@ public class SeleniumUtility {
     protected void sendTextToElement(WebElement element, String text) throws InterruptedException {
 
         try {
-            angularwait();
+            jswait();
             element.clear();
             element.sendKeys(text);
 //            ScenarioLogger.log(text);
@@ -169,7 +226,7 @@ public class SeleniumUtility {
     }
     protected void sendTab(WebElement element)
     {
-        angularwait();
+        jswait();
         element.sendKeys(Keys.TAB);
     }
 
@@ -221,7 +278,7 @@ public class SeleniumUtility {
     }
 
     protected void selectDropdownValue_Text(WebElement element, String selectVal) {
-        angularwait();
+        jswait();
 
         Select selectelement = new Select(element);
         selectelement.selectByVisibleText(selectVal);
@@ -235,7 +292,7 @@ public class SeleniumUtility {
         js.executeScript(jsCmd);
     }
     protected boolean iselementDisplayed(WebElement element) {
-        angularwait();
+        jswait();
 
         try {
             return element.isDisplayed();
@@ -245,7 +302,7 @@ public class SeleniumUtility {
     }
 
     protected boolean iselementnotDisplayed(WebElement element) {
-        angularwait();
+        jswait();
         boolean flag=false;
         try {
 
@@ -262,7 +319,7 @@ public class SeleniumUtility {
     }
 
     protected boolean iselementdisabled(WebElement element) {
-        angularwait();
+        jswait();
 
         try {
             element.isEnabled();
@@ -274,7 +331,7 @@ public class SeleniumUtility {
 
 
     protected boolean iselementenabled(WebElement element) {
-        angularwait();
+        jswait();
 
         try {
             element.isEnabled();
@@ -285,7 +342,7 @@ public class SeleniumUtility {
     }
 
     protected boolean iselementsDisplayed(List<WebElement> elements) {
-        angularwait();
+        jswait();
         try {
             if (elements.size() > 0) {
                 return true;
@@ -332,14 +389,14 @@ public class SeleniumUtility {
 
 
     protected String getTextfromelement(WebElement element) throws InterruptedException {
-        angularwait();
+        jswait();
         String textVal = element.getText();
         return textVal;
 
     }
 
     public static boolean isTextVisibleonScreen(String text) throws InterruptedException {
-        angularwait();
+        jswait();
         try {
             return driver.getPageSource().contains(text);
         } catch (Exception e) {
@@ -350,7 +407,7 @@ public class SeleniumUtility {
 
 
     protected String getTextfromAttribute(WebElement element, String attributeName) throws InterruptedException {
-        angularwait();
+        jswait();
         String textVal = element.getAttribute(attributeName);
         return textVal;
 
@@ -358,7 +415,7 @@ public class SeleniumUtility {
 
     protected void sendValuetoElement(WebElement element, String text) {
         try {
-            angularwait();
+            jswait();
             Actions builder = new Actions(driver);
             Action seriesOfActions = builder.moveToElement(element).build();
             seriesOfActions.perform();
@@ -378,7 +435,7 @@ public class SeleniumUtility {
 
     public static void mouseOverOnElement(WebElement element) throws IOException {
         try {
-            angularwait();
+            jswait();
             Actions act = new Actions(driver);
             act.moveToElement(element).build().perform();
 
@@ -391,7 +448,7 @@ public class SeleniumUtility {
 
     public static void scrollIntoView(WebElement ele) throws IOException {
         try {
-            angularwait();
+            jswait();
             ((JavascriptExecutor) driver).executeScript(
                     "arguments[0].scrollIntoView({behavior: 'auto',block: 'center',inline: 'center'});", ele);
         } catch (Exception e) {
@@ -405,7 +462,7 @@ public class SeleniumUtility {
 
 
     public void validatetextinElement1(WebElement agentele,String expr) throws InterruptedException, IOException {
-        angularwait();
+        jswait();
 
 
         try {
@@ -435,7 +492,7 @@ public class SeleniumUtility {
 
 
     public void validatetextinElement2(WebElement agele,String exprn) throws InterruptedException, IOException {
-        angularwait();
+        jswait();
 
 
         try {
@@ -462,7 +519,7 @@ public class SeleniumUtility {
     }
 
     public void validatenotextinElement(WebElement ele,String exp) throws InterruptedException, IOException {
-        angularwait();
+        jswait();
         String actual=ele.getText();
 //        ScenarioLogger.log("Actual is " +actual);
 //        ScenarioLogger.log("Expected is " +exp);
@@ -473,7 +530,7 @@ public class SeleniumUtility {
     }
 
     public void actionValidatetextinElement(WebElement e,String ex) throws InterruptedException, IOException {
-        angularwait();
+        jswait();
         String actual=e.getAttribute("value");
 //        ScenarioLogger.log(actual);
 //        ScenarioLogger.log(logex);
@@ -486,7 +543,7 @@ public class SeleniumUtility {
     }
 
     public static void clickelebytext(String txt) throws InterruptedException, IOException {
-        angularwait();
+        jswait();
         WebElement eleName = driver.findElement(By.xpath("//*[contains(text(),'"+txt+"')]"));
         Actions actions = new Actions(driver);
         actions.moveToElement(eleName).click(eleName);
@@ -552,17 +609,11 @@ public class SeleniumUtility {
 
     }
 
-    public static void angularwait()  {
+    public static void jswait()  {
 
-
-//		JavascriptExecutor jsdriver= (JavascriptExecutor) driver;
-//
-//		NgWebDriver ngDriver = new NgWebDriver(jsdriver);
-//
-//		ngDriver.waitForAngularRequestsToFinish();
 
         WebDriverWait wait = new WebDriverWait(driver, 500);
-//        wait.until(webDriver -> ((JavascriptExecutor)webDriver).executeScript("return document.readyState").equals("complete"));
+        wait.until(webDriver -> ((JavascriptExecutor)webDriver).executeScript("return document.readyState").equals("complete"));
 
     }
 
@@ -570,28 +621,7 @@ public class SeleniumUtility {
 
 
 
-    public String generateRandomString(int n) {
 
-        // int n = 3;
-
-        // chose a Character random from this String
-        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvxyz";
-
-        // create StringBuffer size of AlphaNumericString
-        StringBuilder sb = new StringBuilder(n);
-
-        for (int i = 0; i < n; i++) {
-
-            // generate a random number between
-            // 0 to AlphaNumericString variable length
-            int index = (int) (AlphaNumericString.length() * Math.random());
-
-            // add Character one by one in end of sb
-            sb.append(AlphaNumericString.charAt(index));
-        }
-
-        return sb.toString();
-    }
 
 
 

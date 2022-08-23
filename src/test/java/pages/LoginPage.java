@@ -23,6 +23,30 @@ public class LoginPage extends SeleniumUtility  {
     @FindBy(xpath = "//*[contains(text(),'Registration')]")
     private WebElement registerTab;
 
+    @FindBy(xpath = "//*[contains(@class,'sc-idOiZg bwAMjs nav-link')]//..//*[contains(text(),'Acc')]")
+    private WebElement accountsTab;
+
+    @FindBy(xpath = "//*[contains(@class,'MuiTypography-root sc-dlfnuX jnNLSi card-title MuiTypography-h5 MuiTypography-gutterBottom')]")
+    private WebElement myaccountvisible;
+
+//    @FindBy(xpath = "//*[contains(@class,'sc-idOiZg bwAMjs nav-link')]//..//*[contains(text(),'New')]")
+//    private WebElement newTransfertab;
+
+    @FindBy(xpath = "//*[contains(@class,'sc-idOiZg bwAMjs nav-link')]//..//*[contains(text(),'Loan')]")
+    private WebElement loan;
+
+    @FindBy(xpath = "//*[contains(@class,'sc-idOiZg bwAMjs nav-link')]//..//*[contains(text(),'Card')]")
+    private WebElement card;
+
+    @FindBy(xpath = "//*[contains(@class,'sc-idOiZg bwAMjs nav-link')]//..//*[contains(text(),'Forecast')]")
+    private WebElement forecast;
+
+    @FindBy(xpath = "//*[contains(@class,'sc-idOiZg bwAMjs nav-link')]//..//*[contains(text(),'Stock')]")
+    private WebElement stock;
+
+    @FindBy(xpath="//img[@alt='Advantage Bank logo']")
+    private WebElement companyLogo;
+
 
     @FindBy(xpath = "//input[contains(@name,'firstName')]")
     private WebElement firstnameTxt;
@@ -47,9 +71,14 @@ public class LoginPage extends SeleniumUtility  {
 
     public WebElement btnclick(String btnname) {
 
-        angularwait();
+        jswait();
         return driver.findElement(By.xpath("  //*[contains(@class,'button-label')]//..//*[text()='"+btnname+"']"));
 
+    }
+
+    public WebElement tabclick(String tabname){
+        jswait();
+        return driver.findElement(By.xpath("//*[contains(@class,'sc-idOiZg bwAMjs nav-link')]//..//*[contains(text(),'"+tabname+"')]"));
     }
 
     public void login_application() throws Exception {
@@ -70,28 +99,73 @@ public class LoginPage extends SeleniumUtility  {
             clickElement(registerTab);
     }
 
+//    public void clickaccountsTab() throws InterruptedException {
+//
+//
+//        Thread.sleep(3000);
+//        clickElement(accountsTab);
+//    }
+//
+////    public void clicknewtransferTab() throws InterruptedException {
+////        Thread.sleep(3000);
+////        clickElement(newTransfertab);
+////    }
+//
+//    public void clickloanTab() throws InterruptedException {
+//        Thread.sleep(3000);
+//        clickElement(loan);
+//    }
+//
+//    public void clickcardsTab() throws InterruptedException {
+//        Thread.sleep(3000);
+//        clickElement(card);
+//    }
+//
+//    public void clickforecastTab() throws InterruptedException {
+//        Thread.sleep(3000);
+//        clickElement(forecast);
+//    }
+//
+//    public void clickstocksTab() throws InterruptedException {
+//        Thread.sleep(3000);
+//        clickElement(stock);
+//    }
+
+    public void myaccountsvisible(){
+        iselementDisplayed(myaccountvisible);
+    }
+
 
     public void clickbutton(String btnname){
      clickElement(btnclick(btnname));
     }
 
+    public void clickTab(String tabname) throws InterruptedException {
+        Thread.sleep(3000);
+        clickElement(tabclick(tabname));
+    }
+
 
     public void entervaluesinregisterpage(){
 
-        SendtexttoElement(firstnameTxt,"vandhi");
-        SendtexttoElement(lastnameTxt,"rao");
-        SendtexttoElement(emailTxt,"vandhita.rao@dxc.com");
-        SendtexttoElement(usernameTxt,"van_r");
-        SendtexttoElement(passwordTxt,"test123");
-        SendtexttoElement(confirmPassTxt,"test123");
+        sendtexttoregistration(firstnameTxt);
+        sendtexttoregistration(lastnameTxt);
+        sendemailtoregistration(emailTxt);
+        sendtexttoregistration(usernameTxt);
+        sendpasswordtoregistration(passwordTxt);
+        sendpasswordtoregistration(confirmPassTxt);
 
     }
 
     public void validate_logo(){
     // steps not added as login feature breaks
+        clickElement(companyLogo);
 
     }
 
 
 }
 
+
+//*[contains(@class,'sc-idOiZg bwAMjs nav-link')]//..//*[contains(text(),'Accounts')]
+//*[contains(@class,'sc-idOiZg bwAMjs nav-link')]//..//*[contains(text(),Accounts)]
