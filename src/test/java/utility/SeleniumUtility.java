@@ -1,6 +1,8 @@
 package utility;
 
-import org.testng.Assert;
+import io.cucumber.testng.TestNGCucumberRunner;
+
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Action;

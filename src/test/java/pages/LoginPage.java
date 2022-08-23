@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import utility.SeleniumUtility;
 
 
-public class LoginPage extends SeleniumUtility  {
+public class LoginPage extends SeleniumUtility {
 
      /* Login Page
      **/
@@ -56,7 +56,7 @@ public class LoginPage extends SeleniumUtility  {
 
         String usrname = readPropertyfile("test.properties", "username");
         String paswrd = readPropertyfile("test.properties", "password");
-        SeleniumUtility.launchApplication();
+        launchApplication();
 
         SendtexttoElement(usrName,usrname);
         SendtexttoElement(passwrd,paswrd);
