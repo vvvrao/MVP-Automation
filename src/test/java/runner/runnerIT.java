@@ -4,12 +4,15 @@ package runner;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.runner.RunWith;
+import io.cucumber.testng.Pickle;
+import io.cucumber.testng.TestNGCucumberRunner;
 
+import org.junit.runner.RunWith;
+import org.testng.annotations.BeforeClass;
 
 import static utility.SeleniumUtility.driver;
+
+import java.util.function.Predicate;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features ="src/test/java/resources",
@@ -20,16 +23,14 @@ import static utility.SeleniumUtility.driver;
 
 public class runnerIT {
 
+	private static final Predicate<Pickle> isSequential = pickle -> pickle.getTags().contains("@sequential");
 
-
-    @BeforeClass
-    public static void setup(){
-
-        System.out.println("before classes");
-    }
-    @AfterClass
-    public static void teardown() {
-        driver.quit();
-    }
-
+	private TestNGCucumberRunner testNGCucumberRunner;
+	
+	@BeforeClass(alwaysRun = true)
+	public void setUpClass() {
+		testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
+	}
+	
 }
+

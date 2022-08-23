@@ -1,6 +1,4 @@
-#Auto generated Octane revision tag
-@TID2001REV0.8.0
-#Auto generated Octane revision tag
+
 
 Feature: Advantage bank UI testing
 
