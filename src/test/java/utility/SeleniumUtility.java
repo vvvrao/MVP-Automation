@@ -4,6 +4,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -35,8 +36,12 @@ public class SeleniumUtility {
     public SeleniumUtility() {
         WebDriverManager.chromedriver().setup();
         
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("headless");
+        options.addArguments("start-maximized");
+        
 //        System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
-         driver = new ChromeDriver();
+         driver = new ChromeDriver(options);
 
         this.driver= driver;
         // Initialize Ajax page initialisation
@@ -50,7 +55,7 @@ public class SeleniumUtility {
         webURL = readPropertyfile("test.properties", "web_URL");
         System.out.println(webURL);
 
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
         driver.get(webURL);
     }
 
