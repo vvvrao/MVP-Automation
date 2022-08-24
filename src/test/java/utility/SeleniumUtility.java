@@ -33,9 +33,9 @@ public class SeleniumUtility {
 
     public static String password = generateRandomString(10);
     public SeleniumUtility() {
-//        WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().setup();
         
-        System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
+//        System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
          driver = new ChromeDriver();
 
         this.driver= driver;
