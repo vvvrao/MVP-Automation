@@ -75,5 +75,11 @@ public class LoginSteps{
          lp.clickTab(string);
     }
 
+    
+    @Then("close app")
+    public void close_app() {
+    	
+    	driver.close();
+    }
 
 }

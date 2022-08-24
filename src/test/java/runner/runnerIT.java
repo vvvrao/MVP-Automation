@@ -7,8 +7,9 @@ import io.cucumber.junit.CucumberOptions;
 import io.cucumber.testng.Pickle;
 import io.cucumber.testng.TestNGCucumberRunner;
 
+
 import org.junit.runner.RunWith;
-import org.testng.annotations.BeforeClass;
+
 
 import static utility.SeleniumUtility.driver;
 
@@ -27,10 +28,6 @@ public class runnerIT {
 
 	private TestNGCucumberRunner testNGCucumberRunner;
 	
-	@BeforeClass(alwaysRun = true)
-	public void setUpClass() {
-		testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
-	}
 	
 }
 
