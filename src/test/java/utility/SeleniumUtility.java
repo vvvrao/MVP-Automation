@@ -37,7 +37,7 @@ public class SeleniumUtility {
         WebDriverManager.chromedriver().setup();
         
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless");
+        options.addArguments("headful");
         options.addArguments("start-maximized");
         
 //        System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
