@@ -9,6 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.*;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 //import io.github.bonigarcia.wdm.WebDriverManager;
 import junit.framework.Assert;
 
@@ -32,7 +33,7 @@ public class SeleniumUtility {
 
     public static String password = generateRandomString(10);
     public SeleniumUtility() {
-//        WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().setup();
          driver = new ChromeDriver();
 
         this.driver= driver;
