@@ -7,7 +7,6 @@
     <groupId>org.example</groupId>
     <artifactId>AOB_Automation</artifactId>
     <version>1.0-SNAPSHOT</version>
-
     <properties>
         <cucumber.version>7.0.0</cucumber.version>
         <report.pagetitle>MVP- VEP Automation report</report.pagetitle>
@@ -97,12 +96,12 @@
         <!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
-        <!-- <dependency>
+       <!--  <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
             <version>${cucumber.version}</version>
             <scope>compile</scope>
-        </dependency>-->
+        </dependency> -->
         
         <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
     <!-- dependency>
@@ -114,7 +113,7 @@
  
 
         <!--https://mvnrepository.com/artifact/org.testng/testng-->
-        <!-- <dependency>
+       <!-- <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
