@@ -32,17 +32,17 @@ public class SeleniumUtility {
 
 
     public static String password = generateRandomString(10);
-    public SeleniumUtility() {
-        WebDriverManager.chromedriver().setup();
-        
-//        System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
-         driver = new ChromeDriver();
-
-        this.driver= driver;
-        // Initialize Ajax page initialisation
-        PageFactory.initElements(driver, this);
-
-    }
+//    public SeleniumUtility() {
+//        WebDriverManager.chromedriver().setup();
+//        
+////        System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
+//         driver = new ChromeDriver();
+//
+//        this.driver= driver;
+//        // Initialize Ajax page initialisation
+//        PageFactory.initElements(driver, this);
+//
+//    }
 
 
     public static void launchApplication() throws Exception {
