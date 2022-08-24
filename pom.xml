@@ -97,29 +97,29 @@
         <!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
-        <dependency>
+        <!-- <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
             <version>${cucumber.version}</version>
             <scope>compile</scope>
-        </dependency>
+        </dependency>-->
         
         <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
-    <dependency>
+    <!-- dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
       <version>3.10.0</version>
       <scope>test</scope>
-     </dependency>
+     </dependency> -->
  
 
         <!--https://mvnrepository.com/artifact/org.testng/testng-->
-        <dependency>
+        <!-- <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
             <scope>test</scope>
-        </dependency>
+        </dependency>-->
         <!--        <dependency>-->
         <!--            <groupId>org.assertj</groupId>-->
         <!--            <artifactId>assertj-core</artifactId>-->

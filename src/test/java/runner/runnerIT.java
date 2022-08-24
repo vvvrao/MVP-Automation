@@ -4,8 +4,7 @@ package runner;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
-import io.cucumber.testng.Pickle;
-import io.cucumber.testng.TestNGCucumberRunner;
+
 
 
 import org.junit.runner.RunWith;
@@ -24,10 +23,7 @@ import java.util.function.Predicate;
 
 public class runnerIT {
 
-	private static final Predicate<Pickle> isSequential = pickle -> pickle.getTags().contains("@sequential");
 
-	private TestNGCucumberRunner testNGCucumberRunner;
-	
 	
 }
 

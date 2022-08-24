@@ -2,7 +2,6 @@ package utility;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.testng.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Action;
@@ -10,6 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.*;
 
+import junit.framework.Assert;
 
 //import runner.ScenarioLogger;
 

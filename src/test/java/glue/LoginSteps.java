@@ -6,8 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+
 import pages.LoginPage;
 
 import static utility.SeleniumUtility.driver;
