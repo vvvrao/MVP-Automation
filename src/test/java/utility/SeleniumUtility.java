@@ -39,9 +39,9 @@ public class SeleniumUtility {
     public static String password = generateRandomString(10);
     public SeleniumUtility() {
     	
-    	System.setProperty("webdriver.chrome.driver","/usr/bin/google-chrome/chromedriver");
-//        WebDriverManager.chromedriver().setup();
-        
+//    	WebDriverManager.chromedriver().setup();
+    	 	System.setProperty("webdriver.chrome.driver","\\usr\\bin\\google-chrome\\chromedriver");
+               
 //        ChromeOptions options = new ChromeOptions();
 //        options.setBinary("/usr/bin/google-chrome/chromedriver");
 //        options.addArguments("--no-sandbox");
