@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.*;
 
@@ -18,6 +19,8 @@ import junit.framework.Assert;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 //import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,18 +30,22 @@ import java.util.Set;
 
 public class SeleniumUtility {
 
-    public static WebDriver driver;
+    public static RemoteWebDriver driver;
     public static String webURL;
 
 
 
     public static String password = generateRandomString(10);
-    public SeleniumUtility() {
+    public SeleniumUtility() throws MalformedURLException {
     	
     	ChromeOptions options = new ChromeOptions();
-   	 	options.addArguments("--headless");
-    	WebDriverManager.chromedriver().setup();
-   	 
+		options.addArguments("--headless");
+		options.addArguments("--disable-gpu");
+		options.addArguments("--disable-dev-shm-usage");
+		
+		URL url = new URL("http://localhost:4444/wd/hub");
+		 driver = new RemoteWebDriver(url,options);
+
    	  	 
 //   	 options.setBinary("/usr/bin/chromedriver");
    
