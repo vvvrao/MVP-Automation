@@ -40,7 +40,7 @@ public class SeleniumUtility {
     	
     	String chromeDriverPath = "/usr/bin/chromedriver";
     	
-    	WebDriverManager.chromedriver().setup();
+//    	WebDriverManager.chromedriver().setup();
     	
     	ChromeOptions options = new ChromeOptions();
     	
