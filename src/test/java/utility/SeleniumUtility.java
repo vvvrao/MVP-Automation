@@ -68,11 +68,11 @@ public class SeleniumUtility {
 //        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
 //        options.merge(capabilities);
 //        this.driver = new ChromeDriver(service, options);ChromeOptions ChromeOptions = new ChromeOptions();
-        ChromeOptions options = new ChromeOptions().setHeadless(true); 
-        driver = new ChromeDriver(options);
-       
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+                
+        driver = new ChromeDriver(options);  
 
-//         driver = new ChromeDriver(options);
 
         this.driver= driver;
         // Initialize Ajax page initialisation
