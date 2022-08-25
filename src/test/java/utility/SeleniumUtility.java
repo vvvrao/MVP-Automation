@@ -77,10 +77,6 @@ public class SeleniumUtility {
         
         driver = new ChromeDriver(options=options);
 
-
-//        driver = new ChromeDriver(options);  
-
-
         this.driver= driver;
         // Initialize Ajax page initialisation
         PageFactory.initElements(driver, this);
