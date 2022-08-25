@@ -4,6 +4,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -32,7 +33,16 @@ public class SeleniumUtility {
 
 
     public static String password = generateRandomString(10);
-//    public SeleniumUtility() {
+    public SeleniumUtility() {
+    
+    
+    ChromeOptions options = new ChromeOptions();
+	 options.addArguments("-headless");
+	 options.setBinary("/user/bin/chromedriver");
+//	 WebDriverManager.chromedriver().setup();
+
+//System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
+ driver = new ChromeDriver();
 //        WebDriverManager.chromedriver().setup();
 //        
 ////        System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
@@ -42,7 +52,7 @@ public class SeleniumUtility {
 //        // Initialize Ajax page initialisation
 //        PageFactory.initElements(driver, this);
 //
-//    }
+    }
 
 
     public static void launchApplication() throws Exception {
