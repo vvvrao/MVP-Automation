@@ -40,8 +40,8 @@ public class SeleniumUtility {
     public SeleniumUtility() {
         WebDriverManager.chromedriver().setup();
         
-//        ChromeOptions options = new ChromeOptions();
-//        options.setBinary("/usr/bin/google-chrome/chromedriver-linux64");
+        ChromeOptions options = new ChromeOptions();
+        options.setBinary("/usr/bin/google-chrome/chromedriver");
 //        options.addArguments("--no-sandbox");
 //        options.addArguments("--disable-dev-shm-usage");
 //        options.addArguments("headless");
@@ -49,25 +49,28 @@ public class SeleniumUtility {
 //        System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
         
         
-        final String CHROMEDRIVER_EXE = "chromedriver";
+//        final String CHROMEDRIVER_EXE = "chromedriver";
         
-        ClassLoader classLoader = getClass().getClassLoader();
-        String filePath = classLoader.getResource(CHROMEDRIVER_EXE).getFile();
-        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-        ChromeDriverService service = new ChromeDriverService.Builder()
-                .usingDriverExecutable(new File(filePath))
-                .build();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox"); // Bypass OS security model, MUST BE THE VERY FIRST OPTION
-        options.addArguments("--headless");
-        options.setExperimentalOption("useAutomationExtension", false);
-        options.addArguments("start-maximized"); // open Browser in maximized mode
-        options.addArguments("disable-infobars"); // disabling infobars
-        options.addArguments("--disable-extensions"); // disabling extensions
-        options.addArguments("--disable-gpu"); // applicable to windows os only
-        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-        options.merge(capabilities);
-        this.driver = new ChromeDriver(service, options);
+//        ClassLoader classLoader = getClass().getClassLoader();
+//        String filePath = classLoader.getResource(CHROMEDRIVER_EXE).getFile();
+//        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+//        ChromeDriverService service = new ChromeDriverService.Builder()
+//                .usingDriverExecutable(new File(filePath))
+//                .build();
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--no-sandbox"); // Bypass OS security model, MUST BE THE VERY FIRST OPTION
+//        options.addArguments("--headless");
+//        options.setExperimentalOption("useAutomationExtension", false);
+//        options.addArguments("start-maximized"); // open Browser in maximized mode
+//        options.addArguments("disable-infobars"); // disabling infobars
+//        options.addArguments("--disable-extensions"); // disabling extensions
+////        options.addArguments("--disable-gpu"); // applicable to windows os only
+//        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+//        options.merge(capabilities);
+//        this.driver = new ChromeDriver(service, options);ChromeOptions ChromeOptions = new ChromeOptions();
+        options.addArguments("--headless", "window-size=1024,768", "--no-sandbox");
+        driver = new ChromeDriver(options);
+
 //         driver = new ChromeDriver(options);
 
         this.driver= driver;
