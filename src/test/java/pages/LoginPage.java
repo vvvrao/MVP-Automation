@@ -1,6 +1,8 @@
 package pages;
 
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,7 +14,9 @@ public class LoginPage extends SeleniumUtility  {
      /* Login Page
      **/
 
-    @FindBy(xpath = "//input[@name='username']")
+   
+
+	@FindBy(xpath = "//input[@name='username']")
     private WebElement usrName;
 
     @FindBy(xpath = "//input[@name='password']")

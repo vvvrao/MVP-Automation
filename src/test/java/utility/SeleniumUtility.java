@@ -36,21 +36,28 @@ public class SeleniumUtility {
 
 
     public static String password = generateRandomString(10);
-    public SeleniumUtility() throws MalformedURLException {
+    public SeleniumUtility() {
     	
     	ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless");
 		options.addArguments("--disable-gpu");
 		options.addArguments("--disable-dev-shm-usage");
 		
-		URL url = new URL("http://localhost:4444/wd/hub");
-		 driver = new RemoteWebDriver(url,options);
+		URL url;
+		try {
+			url = new URL("http://localhost:4444/wd/hub");
+			 driver = new RemoteWebDriver(url,options);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 
    	  	 
 //   	 options.setBinary("/usr/bin/chromedriver");
    
     	
-    	driver = new ChromeDriver(options);
+//    	driver = new ChromeDriver(options);
        this.driver= driver;
        // Initialize Ajax page initialisation
        PageFactory.initElements(driver, this);
