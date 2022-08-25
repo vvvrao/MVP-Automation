@@ -22,6 +22,7 @@ import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -30,7 +31,10 @@ public class LoginSteps{
 	
 	@Given("user logs into Advantage bank")
 	 public void user_logs_into_Advantage_bank() throws Exception {
-	 WebDriverManager.chromedriver().setup();
+		
+		 ChromeOptions options = new ChromeOptions();
+		 options.addArguments("-headless");
+		 WebDriverManager.chromedriver().setup();
      
 //   System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
     WebDriver driver = new ChromeDriver();
