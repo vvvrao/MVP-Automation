@@ -36,12 +36,12 @@ public class SeleniumUtility {
     public SeleniumUtility() {
         WebDriverManager.chromedriver().setup();
         
-//        ChromeOptions options = new ChromeOptions();
-//        options.setBinary("/usr/bin/google-chrome/chromedriver.exe");
-//        options.addArguments("start-maximized");
+        ChromeOptions options = new ChromeOptions();
+//        options.setBinary("/usr/bin/google-chrome/chromedriver-linux64.exe");
+        options.addArguments("headless");
 //        
 //        System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
-         driver = new ChromeDriver();
+         driver = new ChromeDriver(options);
 
         this.driver= driver;
         // Initialize Ajax page initialisation
