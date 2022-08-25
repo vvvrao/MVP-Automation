@@ -38,7 +38,7 @@ public class SeleniumUtility {
 
     public static String password = generateRandomString(10);
     public SeleniumUtility() {
-        WebDriverManager.chromedriver().setup();
+//        WebDriverManager.chromedriver().setup();
         
 //        ChromeOptions options = new ChromeOptions();
 //        options.setBinary("/usr/bin/google-chrome/chromedriver");
@@ -71,8 +71,14 @@ public class SeleniumUtility {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
         options.addArguments("--no-sandbox");
-        options.addArguments("--disable-gpu");     
-        driver = new ChromeDriver(options);  
+        options.addArguments("--disable-gpu");   
+        options.addArguments("--disable-dev-shm-usage");
+        		
+        
+        driver = new ChromeDriver(options=options);
+
+
+//        driver = new ChromeDriver(options);  
 
 
         this.driver= driver;
