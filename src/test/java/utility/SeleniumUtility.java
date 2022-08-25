@@ -100,7 +100,8 @@ public class SeleniumUtility {
 //        driver = new RemoteWebDriver(service.getUrl(), DesiredCapabilities.chrome());
 
     	WebDriverManager.chromedriver().setup();
-    	 ChromeOptions options = new ChromeOptions();
+    	 ChromeOptions options = new ChromeOptions();    	 
+    	 options.setBinary("/usr/bin/chromedriver");
     	 options.addArguments("--headless");
     	 
     	driver = new ChromeDriver(options);
