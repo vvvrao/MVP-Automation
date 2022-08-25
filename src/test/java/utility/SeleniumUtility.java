@@ -38,10 +38,25 @@ public class SeleniumUtility {
     public static String password = generateRandomString(10);
     public SeleniumUtility() {
     	
-    	WebDriverManager wdm = (WebDriverManager) WebDriverManager.chromedriver().browserInDocker().dockerDaemonUrl("tcp://127.0.0.1:2375").create();    	           	        
-      
-    	driver =wdm.create();
+    	WebDriverManager.chromedriver().setup();
     	
+    	ChromeOptions options = new ChromeOptions();
+    	options.addArguments("--no-sandbox");
+    	options.addArguments("--disable-dev-shm-usage");
+		options.addArguments("--headless");
+//		options.addArguments("--disable-gpu");
+		
+		driver = new ChromeDriver(options);
+		
+		driver.navigate().to("https://www.linkedin.com/pulse/running-selenium-web-tests-github-actions-moataz-nabil");;
+		
+		
+
+    	
+//    	WebDriverManager wdm = (WebDriverManager) WebDriverManager.chromedriver().browserInDocker().dockerDaemonUrl("tcp://127.0.0.1:2375").create();    	           	        
+//      
+//    	driver =wdm.create();
+//    	
     	
 //    	ChromeOptions options = new ChromeOptions();
 //		options.addArguments("--headless");
@@ -63,9 +78,9 @@ public class SeleniumUtility {
    
     	
 //    	driver = new ChromeDriver(options);
-       this.driver= driver;
+//       this.driver= driver;
        // Initialize Ajax page initialisation
-       PageFactory.initElements(driver, this);
+//       PageFactory.initElements(driver, this);
        
     	
 //    	 String getLocation=System.getProperty("chromePath");
