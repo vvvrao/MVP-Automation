@@ -70,6 +70,7 @@ public class SeleniumUtility {
 //        this.driver = new ChromeDriver(service, options);ChromeOptions ChromeOptions = new ChromeOptions();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
                 
         driver = new ChromeDriver(options);  
 
