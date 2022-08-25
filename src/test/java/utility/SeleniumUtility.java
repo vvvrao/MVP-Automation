@@ -40,15 +40,16 @@ public class SeleniumUtility {
 //         chromeOptions.addArguments("--headless");
 //         System.setProperty("webdriver.chrome.driver",getLocation);
 //         WebDriver iDriver = new ChromeDriver(chromeOptions);
-//    
+
+        WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker();
     
-    ChromeOptions options = new ChromeOptions();
-	 options.addArguments("-headless");
-	 options.setBinary("/user/bin/chromedriver");
+//    ChromeOptions options = new ChromeOptions();
+//	 options.addArguments("-headless");
+//	 options.setBinary("/user/bin/chromedriver");
 //	 WebDriverManager.chromedriver().setup();
 
 //System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
-	 		driver = new ChromeDriver(options);
+	 		driver = wdm.create();
 //        WebDriverManager.chromedriver().setup();
 //        
 ////        System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
