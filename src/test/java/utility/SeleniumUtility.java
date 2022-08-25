@@ -73,6 +73,10 @@ public class SeleniumUtility {
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-gpu");   
         options.addArguments("--disable-dev-shm-usage");
+        options.setExperimentalOption("useAutomationExtension", false);
+      options.addArguments("start-maximized"); // open Browser in maximized mode
+      options.addArguments("disable-infobars"); // disabling infobars
+      options.addArguments("--disable-extensions"); 
         		
         
         driver = new ChromeDriver(options=options);
@@ -89,7 +93,7 @@ public class SeleniumUtility {
         webURL = readPropertyfile("test.properties", "web_URL");
         System.out.println(webURL);
 
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
         driver.get(webURL);
     }
 
