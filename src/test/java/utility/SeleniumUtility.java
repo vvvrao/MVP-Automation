@@ -38,15 +38,24 @@ public class SeleniumUtility {
     public static String password = generateRandomString(10);
     public SeleniumUtility() {
     	
-    	WebDriverManager.chromedriver().proxy(webURL).setup();
+    	Stirng chromeDriverPath = "/usr/bin";
+    	
+    	System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+    	chromeOptions.setBinary(chromeDriverPath);
     	
     	ChromeOptions options = new ChromeOptions();
     	options.addArguments("--no-sandbox");
     	options.addArguments("--disable-dev-shm-usage");
 		options.addArguments("--headless");
-//		options.addArguments("--disable-gpu");
+		options.addArguments("disable-infobars"); // disabling infobars
+		options.addArguments("--disable-extensions");
+		options.addArguments("--remote-debugging-port=9222");
+		options.setExperimentalOption("useAutomationExtension", false);
 		
 		driver = new ChromeDriver(options);
+		
+		
+//		WebDriverManager.chromedriver().setup();
 		
 		driver.navigate().to("https://www.linkedin.com/pulse/running-selenium-web-tests-github-actions-moataz-nabil");;
 		
