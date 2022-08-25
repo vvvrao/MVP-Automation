@@ -71,7 +71,7 @@ public class SeleniumUtility {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
         options.addArguments("--no-sandbox");
-                
+        options.addArguments("--disable-gpu");     
         driver = new ChromeDriver(options);  
 
 
