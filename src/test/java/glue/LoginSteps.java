@@ -34,7 +34,8 @@ public class LoginSteps{
 		
 		 ChromeOptions options = new ChromeOptions();
 		 options.addArguments("-headless");
-		 WebDriverManager.chromedriver().setup();
+		 options.setBinary("/user/bin/chromedriver");
+//		 WebDriverManager.chromedriver().setup();
      
 //   System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
     WebDriver driver = new ChromeDriver();
