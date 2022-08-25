@@ -4,15 +4,19 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.*;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 //import io.github.bonigarcia.wdm.WebDriverManager;
 import junit.framework.Assert;
+
+import java.io.File;
 
 //import runner.ScenarioLogger;
 
@@ -36,13 +40,34 @@ public class SeleniumUtility {
     public SeleniumUtility() {
         WebDriverManager.chromedriver().setup();
         
-        ChromeOptions options = new ChromeOptions();
+//        ChromeOptions options = new ChromeOptions();
 //        options.setBinary("/usr/bin/google-chrome/chromedriver-linux64");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("headless");
+//        options.addArguments("--no-sandbox");
+//        options.addArguments("--disable-dev-shm-usage");
+//        options.addArguments("headless");
 //        
 //        System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
+        
+        
+        final String CHROMEDRIVER_EXE = "chromedriver";
+        
+        ClassLoader classLoader = getClass().getClassLoader();
+        String filePath = classLoader.getResource(CHROMEDRIVER_EXE).getFile();
+        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+        ChromeDriverService service = new ChromeDriverService.Builder()
+                .usingDriverExecutable(new File(filePath))
+                .build();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--no-sandbox"); // Bypass OS security model, MUST BE THE VERY FIRST OPTION
+        options.addArguments("--headless");
+        options.setExperimentalOption("useAutomationExtension", false);
+        options.addArguments("start-maximized"); // open Browser in maximized mode
+        options.addArguments("disable-infobars"); // disabling infobars
+        options.addArguments("--disable-extensions"); // disabling extensions
+        options.addArguments("--disable-gpu"); // applicable to windows os only
+        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+        options.merge(capabilities);
+        this.driver = new ChromeDriver(service, options);
          driver = new ChromeDriver(options);
 
         this.driver= driver;
