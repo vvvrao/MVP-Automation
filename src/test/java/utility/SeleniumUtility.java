@@ -38,8 +38,8 @@ public class SeleniumUtility {
     	
     	WebDriverManager.chromedriver().setup();
    	 ChromeOptions options = new ChromeOptions();
-   	 ChromeOptions options = new ChromeOptions();    	 
-   	 options.setBinary("/usr/bin/chromedriver");
+   	  	 
+//   	 options.setBinary("/usr/bin/chromedriver");
    	 options.addArguments("--headless");
 
    	driver = new ChromeDriver(options);
