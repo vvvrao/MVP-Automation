@@ -79,7 +79,7 @@ public class SeleniumUtility {
       options.addArguments("--disable-extensions"); 
         		
         
-        driver = new ChromeDriver(options=options);
+        driver = new ChromeDriver(options);
 
         this.driver= driver;
         // Initialize Ajax page initialisation
