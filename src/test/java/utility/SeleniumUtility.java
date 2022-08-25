@@ -38,9 +38,9 @@ public class SeleniumUtility {
     public static String password = generateRandomString(10);
     public SeleniumUtility() {
     	
-    	WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker();
+    	WebDriverManager wdm = (WebDriverManager) WebDriverManager.chromedriver().browserInDocker().dockerDaemonUrl("tcp://127.0.0.1:2375").create();    	           	        
       
-      driver =wdm.create();
+    	driver =wdm.create();
     	
     	
 //    	ChromeOptions options = new ChromeOptions();
