@@ -35,17 +35,17 @@ public class SeleniumUtility {
     public static String password = generateRandomString(10);
     public SeleniumUtility() {
     	
-    	 String getLocation=System.getProperty("chromePath");
-         ChromeOptions chromeOptions = new ChromeOptions();
-         chromeOptions.addArguments("--headless");
-         System.setProperty("webdriver.chrome.driver",getLocation);
-         WebDriver iDriver = new ChromeDriver(chromeOptions);
+//    	 String getLocation=System.getProperty("chromePath");
+//         ChromeOptions chromeOptions = new ChromeOptions();
+//         chromeOptions.addArguments("--headless");
+//         System.setProperty("webdriver.chrome.driver",getLocation);
+//         WebDriver iDriver = new ChromeDriver(chromeOptions);
+//    
     
-    
-//    ChromeOptions options = new ChromeOptions();
-//	 options.addArguments("-headless");
-//	 options.setBinary("/user/bin/chromedriver");
-//	 WebDriverManager.chromedriver().setup();
+    ChromeOptions options = new ChromeOptions();
+	 options.addArguments("-headless");
+	 options.setBinary("/user/bin");
+	 WebDriverManager.chromedriver().setup();
 
 //System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
 	 driver = new ChromeDriver();
