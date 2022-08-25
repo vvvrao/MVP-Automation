@@ -40,7 +40,7 @@ public class SeleniumUtility {
     public SeleniumUtility() {
     	
 //    	WebDriverManager.chromedriver().setup();
-    	 	System.setProperty("webdriver.chrome.driver","\\usr\\bin\\google-chrome\\chromedriver");
+    	 	System.setProperty("webdriver.chrome.driver","http://20.127.210.161:8080/job/DXC_Pipeline/ws/src/test/java/resources/chromedriver.exe");
                
 //        ChromeOptions options = new ChromeOptions();
 //        options.setBinary("/usr/bin/google-chrome/chromedriver");
