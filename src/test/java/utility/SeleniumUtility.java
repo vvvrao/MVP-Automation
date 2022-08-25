@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.*;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-//import io.github.bonigarcia.wdm.WebDriverManager;
+
 import junit.framework.Assert;
 
 //import runner.ScenarioLogger;
@@ -42,6 +42,8 @@ public class SeleniumUtility {
 //         WebDriver iDriver = new ChromeDriver(chromeOptions);
 
         WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker();
+        
+        driver =wdm.create();
     
 //    ChromeOptions options = new ChromeOptions();
 //	 options.addArguments("-headless");
@@ -49,7 +51,7 @@ public class SeleniumUtility {
 //	 WebDriverManager.chromedriver().setup();
 
 //System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
-	 		driver = wdm.create();
+	 		
 //        WebDriverManager.chromedriver().setup();
 //        
 ////        System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
