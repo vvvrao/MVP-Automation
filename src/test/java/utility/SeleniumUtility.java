@@ -39,9 +39,7 @@ public class SeleniumUtility {
     public static String password = generateRandomString(10);
     public SeleniumUtility() {
     	
-//    	WebDriverManager.chromedriver().setup();
-    	 	System.setProperty("webdriver.chrome.driver","/var/lib/jenkins/workspace/DXC_Pipeline/ws/src/test/java/resources/chromedriver.exe");
-               
+    	WebDriverManager.chromedriver().setup();
 //        ChromeOptions options = new ChromeOptions();
 //        options.setBinary("/usr/bin/google-chrome/chromedriver");
 //        options.addArguments("--no-sandbox");
@@ -70,8 +68,10 @@ public class SeleniumUtility {
 //        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
 //        options.merge(capabilities);
 //        this.driver = new ChromeDriver(service, options);ChromeOptions ChromeOptions = new ChromeOptions();
+    	
+    	
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
+         options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-gpu");   
         options.addArguments("--disable-dev-shm-usage");
