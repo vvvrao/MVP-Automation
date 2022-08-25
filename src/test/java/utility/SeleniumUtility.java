@@ -40,6 +40,8 @@ public class SeleniumUtility {
     	
     	String chromeDriverPath = "/usr/bin/chromedriver";
     	
+    	WebDriverManager.chromedriver().setup();
+    	
     	ChromeOptions options = new ChromeOptions();
     	
     	System.setProperty("webdriver.chrome.driver", chromeDriverPath);
@@ -58,7 +60,7 @@ public class SeleniumUtility {
 		driver = new ChromeDriver(options);
 		
 		
-		WebDriverManager.chromedriver().setup();
+		
 		
 		this.driver= driver;
 //      // Initialize Ajax page initialisation
