@@ -40,7 +40,7 @@ public class SeleniumUtility {
     public SeleniumUtility() {
         WebDriverManager.chromedriver().setup();
         
-        ChromeOptions options = new ChromeOptions();
+//        ChromeOptions options = new ChromeOptions();
 //        options.setBinary("/usr/bin/google-chrome/chromedriver");
 //        options.addArguments("--no-sandbox");
 //        options.addArguments("--disable-dev-shm-usage");
@@ -68,8 +68,9 @@ public class SeleniumUtility {
 //        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
 //        options.merge(capabilities);
 //        this.driver = new ChromeDriver(service, options);ChromeOptions ChromeOptions = new ChromeOptions();
-        options.addArguments("--headless", "window-size=1024,768", "--no-sandbox");
+        ChromeOptions options = new ChromeOptions().setHeadless(true); 
         driver = new ChromeDriver(options);
+       
 
 //         driver = new ChromeDriver(options);
 
