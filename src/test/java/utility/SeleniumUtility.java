@@ -85,7 +85,7 @@ public class SeleniumUtility {
 //      options.addArguments("--disable-extensions"); 
         	
     	
-    	System.setProperty("webdriver.chrome.driver", "/var/lib/jenkins/jobs/MVP-Automation/workspace/AOB_Automation/src/test/java/resources/chromedriver");
+    	System.setProperty("webdriver.chrome.driver", "/var/lib/jenkins/jobs/MVP-Automation/workspace/AOB_Automation/src/test/java/resources/chromedriver.exe");
 //    	ChromeDriverService service = new ChromeDriverService.Builder()
 //    	                .usingDriverExecutable(new File("/usr/bin/google-chrome/chromedriver"))
 //    	                .usingAnyFreePort()
