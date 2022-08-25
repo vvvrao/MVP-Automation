@@ -35,14 +35,15 @@ public class SeleniumUtility {
     public static String password = generateRandomString(10);
     public SeleniumUtility() {
     	
-    	
+    	ChromeOptions options = new ChromeOptions();
+   	 	options.addArguments("--headless");
     	WebDriverManager.chromedriver().setup();
-   	 ChromeOptions options = new ChromeOptions();
+   	 
    	  	 
 //   	 options.setBinary("/usr/bin/chromedriver");
-   	 options.addArguments("--headless");
-
-   	driver = new ChromeDriver(options);
+   
+    	
+    	driver = new ChromeDriver(options);
        this.driver= driver;
        // Initialize Ajax page initialisation
        PageFactory.initElements(driver, this);

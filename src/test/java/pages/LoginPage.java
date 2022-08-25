@@ -18,7 +18,7 @@ public class LoginPage extends SeleniumUtility  {
     @FindBy(xpath = "//input[@name='password']")
     private WebElement passwrd;
 
-    @FindBy(xpath = "//*[@class='button-label']//..//*[text()='Login']")
+    @FindBy(xpath = "//*[@class='button-label']//..//*[text()='Sign-In']")
     private WebElement loginbtn;
 
     @FindBy(xpath = "//*[contains(text(),'Registration')]")
