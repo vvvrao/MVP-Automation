@@ -38,7 +38,7 @@ public class SeleniumUtility {
     public static String password = generateRandomString(10);
     public SeleniumUtility() {
     	
-    	String chromeDriverPath = "/usr/bin";
+    	String chromeDriverPath = "/usr/bin/chromedriver";
     	
     	ChromeOptions options = new ChromeOptions();
     	
