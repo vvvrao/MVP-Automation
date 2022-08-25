@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.*;
 
@@ -70,21 +71,33 @@ public class SeleniumUtility {
 //        this.driver = new ChromeDriver(service, options);ChromeOptions ChromeOptions = new ChromeOptions();
     	
     	
-        ChromeOptions options = new ChromeOptions();
-        WebDriverManager.chromedriver().proxyUser(System.getenv("HTTPS_PROXY_USER"));
-        WebDriverManager.chromedriver().proxyPass(System.getenv("HTTPS_PROXY_PASS"));
-        WebDriverManager.chromedriver().proxy(System.getenv("HTTPS_PROXY")).setup();
-         options.addArguments("--headless");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-gpu");   
-        options.addArguments("--disable-dev-shm-usage");
-        options.setExperimentalOption("useAutomationExtension", false);
-      options.addArguments("start-maximized"); // open Browser in maximized mode
-      options.addArguments("disable-infobars"); // disabling infobars
-      options.addArguments("--disable-extensions"); 
-        		
+//        ChromeOptions options = new ChromeOptions();
+//        WebDriverManager.chromedriver().proxyUser(System.getenv("HTTPS_PROXY_USER"));
+//        WebDriverManager.chromedriver().proxyPass(System.getenv("HTTPS_PROXY_PASS"));
+//        WebDriverManager.chromedriver().proxy(System.getenv("HTTPS_PROXY")).setup();
+//         options.addArguments("--headless");
+//        options.addArguments("--no-sandbox");
+//        options.addArguments("--disable-gpu");   
+//        options.addArguments("--disable-dev-shm-usage");
+//        options.setExperimentalOption("useAutomationExtension", false);
+//      options.addArguments("start-maximized"); // open Browser in maximized mode
+//      options.addArguments("disable-infobars"); // disabling infobars
+//      options.addArguments("--disable-extensions"); 
+        	
+    	
+    	System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome/chromedriver");
+    	ChromeDriverService service = new ChromeDriverService.Builder()
+    	                .usingDriverExecutable(new File("/usr/bin/google-chrome/chromedriver"))
+    	                .usingAnyFreePort()
+    	                .build();
+    	        try {
+    	            service.start();
+    	        } catch (IOException e) {
+    	            e.printStackTrace();
+    	        }
+//    	        return new RemoteWebDriver(service.getUrl(), DesiredCapabilities.chrome());
         
-        driver = new ChromeDriver(options);
+        driver = new RemoteWebDriver(service.getUrl(), DesiredCapabilities.chrome());
 
         this.driver= driver;
         // Initialize Ajax page initialisation
