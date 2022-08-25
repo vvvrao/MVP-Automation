@@ -85,7 +85,7 @@ public class SeleniumUtility {
 //      options.addArguments("--disable-extensions"); 
         	
     	
-    	System.setProperty("webdriver.chrome.driver", "/var/lib/jenkins/jobs/MVP-Automation/workspace/AOB_Automation/src/test/java/resources/chromedriver.exe");
+//    	System.setProperty("webdriver.chrome.driver", "/var/lib/jenkins/jobs/MVP-Automation/workspace/AOB_Automation/src/test/java/resources/chromedriver.exe");
 //    	ChromeDriverService service = new ChromeDriverService.Builder()
 //    	                .usingDriverExecutable(new File("/usr/bin/google-chrome/chromedriver"))
 //    	                .usingAnyFreePort()
@@ -99,8 +99,11 @@ public class SeleniumUtility {
         
 //        driver = new RemoteWebDriver(service.getUrl(), DesiredCapabilities.chrome());
 
-    	
-    	driver = new ChromeDriver();
+    	WebDriverManager.chromedriver().setup();
+    	 ChromeOptions options = new ChromeOptions();
+    	 options.addArguments("--headless");
+    	 
+    	driver = new ChromeDriver(options);
         this.driver= driver;
         // Initialize Ajax page initialisation
         PageFactory.initElements(driver, this);
