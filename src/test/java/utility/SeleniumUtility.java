@@ -35,15 +35,28 @@ public class SeleniumUtility {
     public static String password = generateRandomString(10);
     public SeleniumUtility() {
     	
+    	
+    	WebDriverManager.chromedriver().setup();
+   	 ChromeOptions options = new ChromeOptions();
+   	 ChromeOptions options = new ChromeOptions();    	 
+   	 options.setBinary("/usr/bin/chromedriver");
+   	 options.addArguments("--headless");
+
+   	driver = new ChromeDriver(options);
+       this.driver= driver;
+       // Initialize Ajax page initialisation
+       PageFactory.initElements(driver, this);
+       
+    	
 //    	 String getLocation=System.getProperty("chromePath");
 //         ChromeOptions chromeOptions = new ChromeOptions();
 //         chromeOptions.addArguments("--headless");
 //         System.setProperty("webdriver.chrome.driver",getLocation);
 //         WebDriver iDriver = new ChromeDriver(chromeOptions);
 
-        WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker();
-        
-        driver =wdm.create();
+//        WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker();
+//        
+//        driver =wdm.create();
     
 //    ChromeOptions options = new ChromeOptions();
 //	 options.addArguments("-headless");
