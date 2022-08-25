@@ -39,7 +39,7 @@ public class SeleniumUtility {
     public static String password = generateRandomString(10);
     public SeleniumUtility() {
     	
-    	WebDriverManager.chromedriver().setup();
+    	
 //        ChromeOptions options = new ChromeOptions();
 //        options.setBinary("/usr/bin/google-chrome/chromedriver");
 //        options.addArguments("--no-sandbox");
@@ -71,6 +71,9 @@ public class SeleniumUtility {
     	
     	
         ChromeOptions options = new ChromeOptions();
+        WebDriverManager.chromedriver().proxyUser(System.getenv("HTTPS_PROXY_USER"));
+        WebDriverManager.chromedriver().proxyPass(System.getenv("HTTPS_PROXY_PASS"));
+        WebDriverManager.chromedriver().proxy(System.getenv("HTTPS_PROXY")).setup();
          options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-gpu");   
