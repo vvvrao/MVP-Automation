@@ -38,7 +38,7 @@ public class SeleniumUtility {
 
     public static String password = generateRandomString(10);
     public SeleniumUtility() {
-        WebDriverManager.chromedriver().setup();
+//        WebDriverManager.chromedriver().setup();
         
 //        ChromeOptions options = new ChromeOptions();
 //        options.setBinary("/usr/bin/google-chrome/chromedriver");
