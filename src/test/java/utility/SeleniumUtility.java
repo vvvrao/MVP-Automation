@@ -38,14 +38,14 @@ public class SeleniumUtility {
     public static String password = generateRandomString(10);
     public SeleniumUtility() {
     	
-    	String chromeDriverPath = "/usr/bin";
+    	String chromeDriverPath = "/usr/bin/chromedriver";
     	
 //    	WebDriverManager.chromedriver().setup();
     	
     	ChromeOptions options = new ChromeOptions();
     	
     	System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-    	options.setBinary(chromeDriverPath);
+//    	options.setBinary(chromeDriverPath);
     	
     	
     	options.addArguments("--no-sandbox");
