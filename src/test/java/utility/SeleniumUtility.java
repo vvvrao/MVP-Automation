@@ -52,16 +52,17 @@ public class SeleniumUtility {
 		options.addArguments("disable-infobars"); // disabling infobars
 		options.addArguments("--disable-extensions");
 		options.addArguments("--remote-debugging-port=9222");
-		options.setExperimentalOption("useAutomationExtension", false);
+		options.addArguments("--window-size=1920x1080");
+//		options.setExperimentalOption("useAutomationExtension", false);
 		
 		driver = new ChromeDriver(options);
 		
 		
 //		WebDriverManager.chromedriver().setup();
 		
-		driver.navigate().to("https://www.linkedin.com/pulse/running-selenium-web-tests-github-actions-moataz-nabil");;
-		
-		
+		this.driver= driver;
+//      // Initialize Ajax page initialisation
+      PageFactory.initElements(driver, this);
 
     	
 //    	WebDriverManager wdm = (WebDriverManager) WebDriverManager.chromedriver().browserInDocker().dockerDaemonUrl("tcp://127.0.0.1:2375").create();    	           	        
@@ -116,9 +117,7 @@ public class SeleniumUtility {
 ////        System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
 //         driver = new ChromeDriver();
 //
-//        this.driver= driver;
-//        // Initialize Ajax page initialisation
-//        PageFactory.initElements(driver, this);
+//        
 //
     }
 
