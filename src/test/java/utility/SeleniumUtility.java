@@ -38,22 +38,24 @@ public class SeleniumUtility {
     public static String password = generateRandomString(10);
     public SeleniumUtility() {
     	
+    	WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker();
+      
+      driver =wdm.create();
     	
     	
-    	
-    	ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless");
-		options.addArguments("--disable-gpu");
-		options.addArguments("--disable-dev-shm-usage");
+//    	ChromeOptions options = new ChromeOptions();
+//		options.addArguments("--headless");
+//		options.addArguments("--disable-gpu");
+//		options.addArguments("--disable-dev-shm-usage");
 		
-		URL url;
-		try {
-			url = new URL("http://localhost:4444/wd/hub");
-			 driver = new RemoteWebDriver(url,options);
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		URL url;
+//		try {
+//			url = new URL("http://localhost:4444/wd/hub");
+//			 driver = new RemoteWebDriver(url,options);
+//		} catch (MalformedURLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 
    	  	 
