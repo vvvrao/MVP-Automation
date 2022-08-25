@@ -1,51 +1,30 @@
 package glue;
-//
-//
-//import io.cucumber.java.en.And;
-//import io.cucumber.java.en.Given;
-//import io.cucumber.java.en.Then;
-//
-//
-//
-//import pages.LoginPage;
-//
-//import static utility.SeleniumUtility.driver;
-//
-//
+
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.github.bonigarcia.wdm.WebDriverManager;
+
+
+
 import pages.LoginPage;
 
-import java.io.FileInputStream;
-import java.util.Properties;
+import static utility.SeleniumUtility.driver;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class LoginSteps{
-		 
-    
-   
-	
 
 
   
     LoginPage lp = new LoginPage();
 
 
-     @Given("user logs into Advantage bank1")
-    public void user_logs_into_Advantage_bank1() throws Exception {
+     @Given("user logs into Advantage bank")
+    public void user_logs_into_Advantage_bank() throws Exception {
          lp.login_application();
 
      }
-    
+
          @Then("A default Log in window of Advantage Bank Portal Should Open")
          public void a_default_log_in_window_of_advantage_bank_portal_should_open() {
              lp.validate_logo();
@@ -99,7 +78,7 @@ public class LoginSteps{
     @Then("close app")
     public void close_app() {
     	
-//    	driver.close();
+    	driver.close();
     }
 
 }
