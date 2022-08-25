@@ -45,7 +45,7 @@ public class SeleniumUtility {
     ChromeOptions options = new ChromeOptions();
 	 options.addArguments("-headless");
 	 options.setBinary("/user/bin/chromedriver");
-//	 WebDriverManager.chromedriver().setup();
+	 WebDriverManager.chromedriver().setup();
 
 //System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
 	 driver = new ChromeDriver();
