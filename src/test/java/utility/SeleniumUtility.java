@@ -30,13 +30,16 @@ import java.util.Set;
 
 public class SeleniumUtility {
 
-    public static RemoteWebDriver driver;
+    public static WebDriver driver;
     public static String webURL;
 
 
 
     public static String password = generateRandomString(10);
     public SeleniumUtility() {
+    	
+    	
+    	
     	
     	ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless");
