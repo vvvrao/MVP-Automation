@@ -116,7 +116,7 @@ public class SeleniumUtility {
 		WebDriverManager.chromedriver().setup();
 		
 		 ChromeOptions options = new ChromeOptions();
-//		 options.setBinary("/usr/bin/chromedriver");
+		 options.setBinary("/usr/bin/chromedriver");
 		 options.addArguments("-headless");
 		 options.addArguments("--no-sandbox");
 		 driver = new ChromeDriver(options);
