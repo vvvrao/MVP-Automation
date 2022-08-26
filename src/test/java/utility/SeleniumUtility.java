@@ -118,6 +118,7 @@ public class SeleniumUtility {
 		 ChromeOptions options = new ChromeOptions();
 		 options.setBinary("/usr/bin/chromedriver");
 		 options.addArguments("-headless");
+		 options.addArguments("--no-sandbox");
 		 driver = new ChromeDriver(options);
 		 driver.get(webURL);
 //		 PageFactory.initElements(driver, this);
