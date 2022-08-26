@@ -23,6 +23,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 //import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
@@ -46,15 +47,18 @@ public class SeleniumUtility {
 //    	
 //    	System.getProperty("chromepath");
 //    	
-//    	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+    	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
 		    	
-		WebDriverManager.chromedriver().setup();
+//		WebDriverManager.chromedriver().setup();
 		
 		 ChromeOptions options = new ChromeOptions();
 		 options.setBinary("/usr/bin/google-chrome");
 		 options.addArguments("-headless");
 		 options.addArguments("--no-sandbox");
 		 options.addArguments("--disable-dev-shm-usage");
+		 options.addArguments("start-maximized");
+		 options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+		 options.setExperimentalOption("useAutomationExtension", false);
 		 driver = new ChromeDriver(options);
 //		 driver.get(webURL);
 		 PageFactory.initElements(driver, this);
