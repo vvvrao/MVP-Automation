@@ -53,12 +53,12 @@ public class SeleniumUtility {
 		
 		 ChromeOptions options = new ChromeOptions();
 		 options.setBinary("/usr/bin/google-chrome");
-		 options.addArguments("-headless");
+		 options.setHeadless(true);
 		 options.addArguments("--no-sandbox");
 		 options.addArguments("--disable-dev-shm-usage");
 		 options.addArguments("start-maximized");
-		 options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
-		 options.setExperimentalOption("useAutomationExtension", false);
+//		 options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+//		 options.setExperimentalOption("useAutomationExtension", false);
 		 driver = new ChromeDriver(options);
 //		 driver.get(webURL);
 		 PageFactory.initElements(driver, this);
