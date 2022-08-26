@@ -53,43 +53,41 @@ public class SeleniumUtility {
 //    	
 //    	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
 //		    	
-////		WebDriverManager.chromedriver().setup();
+		WebDriverManager.chromedriver().setup();
 //		
-//		 ChromeOptions options = new ChromeOptions();
-////		 options.setBinary("/usr/bin/google-chrome");
-//		 options.setHeadless(true);
-//		 options.addArguments("--no-sandbox");
-//		 options.addArguments("--disable-dev-shm-usage");
-//		 options.addArguments("start-maximized");
-////		 options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
-////		 options.setExperimentalOption("useAutomationExtension", false);
-//		 driver = new ChromeDriver(options);
-//		 driver.get(webURL);
+		 ChromeOptions options = new ChromeOptions();
+		 options.setBinary("/usr/bin/google-chrome");
+		 options.setHeadless(true);
+		 options.addArguments("--no-sandbox");
+		 options.addArguments("--disable-dev-shm-usage");
+		 options.addArguments("start-maximized");
+//		 options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+//		 options.setExperimentalOption("useAutomationExtension", false);
+		 driver = new ChromeDriver(options);
+		 driver.get(webURL);
 		
 		 
 		 
-		 System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-		 ChromeDriverService service = new ChromeDriverService.Builder()
-		                 .usingDriverExecutable(new File("/usr/bin/chromedriver"))
-		                 .usingAnyFreePort()
-		                 .build();
-		         try {
-		             service.start();
-		         } catch (IOException e) {
-		             e.printStackTrace();
-		         }
+//		 System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+//		 ChromeDriverService service = new ChromeDriverService.Builder()
+//		                 .usingDriverExecutable(new File("/usr/bin/chromedriver"))
+//		                 .usingAnyFreePort()
+//		                 .build();
+//		         try {
+//		             service.start();
+//		         } catch (IOException e) {
+//		             e.printStackTrace();
+//		         }
 		         
-		         ChromeOptions opts = new ChromeOptions();
-		         
-		         opts.setBinary("/usr/bin/google-chrome");
-		         opts.addArguments("--headless");	
-		         opts.addArguments("-incognito");
-		         opts.addArguments("--no-sandbox");      
+//		         ChromeOptions opts = new ChromeOptions();
+//		         
+//		         opts.setBinary("/usr/bin/google-chrome");
+//		         opts.addArguments("--headless");	
+//		         opts.addArguments("-incognito");
+//		         opts.addArguments("--no-sandbox");      
 
 		       
-		         driver = new ChromeDriver(opts);				        
-    
-		         driver.get(webURL);
+		         
     }
 
 
