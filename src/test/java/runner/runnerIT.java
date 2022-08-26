@@ -2,11 +2,12 @@ package runner;
 
 
 
+
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
-
-
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.junit.runner.RunWith;
 
 
@@ -21,9 +22,11 @@ import java.util.function.Predicate;
         glue ={"glue"})
 
 
+
+
 public class runnerIT {
 
-
+	private static final Logger logger = LogManager.getLogger(runnerIT.class); 
 	
 }
 
