@@ -51,7 +51,7 @@ public class SeleniumUtility {
 //		WebDriverManager.chromedriver().setup();
 		
 		 ChromeOptions options = new ChromeOptions();
-		 options.setBinary("/usr/bin/chromedriver");
+		 options.setBinary("/usr/bin/google-chrome");
 		 options.addArguments("-headless");
 		 options.addArguments("--no-sandbox");
 		 options.addArguments("--disable-dev-shm-usage");
