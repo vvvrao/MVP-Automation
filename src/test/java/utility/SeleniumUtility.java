@@ -46,12 +46,12 @@ public class SeleniumUtility {
 //    	
 //    	System.getProperty("chromepath");
 //    	
-    	System.setProperty("webdriver.chrome.driver", "/src/test/java/resources/chromedriver.exe");
+    	System.setProperty("webdriver.chrome.driver", "\\src\\test\\java\\resources\\chromedriver.exe");
 		    	
 //		WebDriverManager.chromedriver().setup();
 		
 		 ChromeOptions options = new ChromeOptions();
-		 options.setBinary("/src/test/java/resources/chromedriver.exe");
+//		 options.setBinary("/src/test/java/resources/chromedriver.exe");
 		 options.addArguments("-headless");
 		 options.addArguments("--no-sandbox");
 		 options.addArguments("--disable-dev-shm-usage");
