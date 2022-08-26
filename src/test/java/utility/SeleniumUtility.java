@@ -85,7 +85,7 @@ public class SeleniumUtility {
 		         opts.addArguments("--no-sandbox");      
 
 		       
-		        driver = new  RemoteWebDriver(service.getUrl(), DesiredCapabilities.chrome());				        
+		         driver = new ChromeDriver(opts);				        
     
 		         driver.get(webURL);
     }
