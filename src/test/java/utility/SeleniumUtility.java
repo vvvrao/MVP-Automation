@@ -46,9 +46,9 @@ public class SeleniumUtility {
 //    	
 //    	System.getProperty("chromepath");
 //    	
-    	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+//    	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
 		    	
-//		WebDriverManager.chromedriver().setup();
+		WebDriverManager.chromedriver().setup();
 		
 		 ChromeOptions options = new ChromeOptions();
 		 options.setBinary("/usr/bin/google-chrome");
