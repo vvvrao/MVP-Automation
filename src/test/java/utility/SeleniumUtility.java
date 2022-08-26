@@ -54,16 +54,18 @@ public class SeleniumUtility {
 //    	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
 //		    	
 		WebDriverManager.chromedriver().setup();
+////		
 //		
-		
 		 ChromeOptions chromeOptions = new ChromeOptions();
-	        chromeOptions.setBinary("/usr/bin/chromedriver");
+	        chromeOptions.setBinary("/usr/bin/google-chrome");
 	        chromeOptions.addArguments("--headless");                  
 	        chromeOptions.addArguments("--no-sandbox");                
 	        chromeOptions.addArguments("--single-process");            
 	        chromeOptions.addArguments("--disable-dev-shm-usage");
 		 driver = new ChromeDriver(chromeOptions);
-		 driver.get(webURL);
+		 driver.get(webURL); 	
+    	
+      
 		
 		 
 		 
