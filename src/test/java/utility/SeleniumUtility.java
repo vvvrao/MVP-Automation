@@ -38,107 +38,18 @@ public class SeleniumUtility {
     public static String password = generateRandomString(10);
     public SeleniumUtility() {
     	
-//    	String chromeDriverPath = "/usr/bin/chromedriver";
-//    	
-////    	WebDriverManager.chromedriver().setup();
-//    	
-//    	ChromeOptions options = new ChromeOptions();
-//    	
-//    	System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-////    	options.setBinary(chromeDriverPath);
-//    	
-//    	
-//    	options.addArguments("--no-sandbox");
-//    	options.addArguments("--disable-dev-shm-usage");
-//		options.addArguments("--headless");
-//		options.addArguments("disable-infobars"); // disabling infobars
-//		options.addArguments("--disable-extensions");
-//		options.addArguments("--remote-debugging-port=9222");
-//		options.addArguments("--window-size=1920x1080");
-////		options.setExperimentalOption("useAutomationExtension", false);
-//		
-//		driver = new ChromeDriver(options);
-//		
-		
-		
-		
-//		this.driver= driver;
-////      // Initialize Ajax page initialisation
-//      PageFactory.initElements(driver, this);
-
-    	
-//    	WebDriverManager wdm = (WebDriverManager) WebDriverManager.chromedriver().browserInDocker().dockerDaemonUrl("tcp://127.0.0.1:2375").create();    	           	        
-//      
-//    	driver =wdm.create();
-//    	
-//    	 options.setBinary("/usr/bin/chromedriver");
-////    	
-//    	
-//    	ChromeOptions options = new ChromeOptions();
-//		options.addArguments("--headless");
-//		options.addArguments("--disable-gpu");
-//		options.addArguments("--disable-dev-shm-usage");
-//		
-//		URL url;
-//		try {
-//			url = new URL("http://localhost:4444/wd/hub");
-//			 driver = new RemoteWebDriver(url,options);
-//		} catch (MalformedURLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		
-
-   	  	 
-//   	 options.setBinary("/usr/bin/chromedriver");
-   
-    	
-//    	driver = new ChromeDriver(options);
-//       this.driver= driver;
-       // Initialize Ajax page initialisation
-//       PageFactory.initElements(driver, this);
-       
-    	
-//    	 String getLocation=System.getProperty("chromePath");
-//         ChromeOptions chromeOptions = new ChromeOptions();
-//         chromeOptions.addArguments("--headless");
-//         System.setProperty("webdriver.chrome.driver",getLocation);
-//         WebDriver iDriver = new ChromeDriver(chromeOptions);
-
-    	
-       
-    
-//    ChromeOptions options = new ChromeOptions();
-//	 options.addArguments("-headless");
-//	 options.setBinary("/user/bin/chromedriver");
 	 
 		    	
 		WebDriverManager.chromedriver().setup();
 		
 		 ChromeOptions options = new ChromeOptions();
 //		 options.setBinary("/usr/bin/chromedriver");
-		 options.addArguments("-headless");
-		 options.addArguments("--no-sandbox");
+//		 options.addArguments("-headless");
+//		 options.addArguments("--no-sandbox");
 		 driver = new ChromeDriver(options);
-		 driver.get(webURL);
-//		 PageFactory.initElements(driver, this);
-		
-		
-		
-//		this.driver= driver;
-////   // Initialize Ajax page initialisation
-//   
-
-//	 
-
-//System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
-	 		
-//        WebDriverManager.chromedriver().setup();
-//        
-////        System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
-//         driver = new ChromeDriver();
-//
-//        
+//		 driver.get(webURL);
+		 PageFactory.initElements(driver, this);
+    
 //
     }
 
