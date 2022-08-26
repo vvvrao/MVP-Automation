@@ -80,6 +80,8 @@ public class SeleniumUtility {
 		         }
 		         
 		         ChromeOptions opts = new ChromeOptions();
+		         
+		         opts.setBinary("/usr/bin/google-chrome");
 		         opts.addArguments("--headless");	
 		         opts.addArguments("-incognito");
 		         opts.addArguments("--no-sandbox");      
