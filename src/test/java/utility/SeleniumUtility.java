@@ -112,10 +112,15 @@ public class SeleniumUtility {
 //	 options.addArguments("-headless");
 //	 options.setBinary("/user/bin/chromedriver");
 	 
-    	
-    	WebDriverManager.chromedriver().setup();
-	 driver = new ChromeDriver();
-	 PageFactory.initElements(driver, this);
+		    	
+		WebDriverManager.chromedriver().setup();
+		
+		 ChromeOptions options = new ChromeOptions();
+		 options.setBinary("/usr/bin/chromedriver");
+		 options.addArguments("-headless");
+		 driver = new ChromeDriver(options);
+		 driver.get(webURL);
+//		 PageFactory.initElements(driver, this);
 		
 		
 		
