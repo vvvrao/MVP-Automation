@@ -38,12 +38,20 @@ public class SeleniumUtility {
     public static String password = generateRandomString(10);
     public SeleniumUtility() {
     	
-    	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+    	
+//    	System.setProperty("webdriver.chrome.driver", "\\var\\www\\Jar\\chromedriver");
+//    	Capability= DesiredCapabilities.chrome();  
+//    	Capability.setPlatform(org.openqa.selenium.Platform.ANY);
+//    	browser=new RemoteWebDriver(new URL(nodeURL),Capability);
+//    	
+//    	System.getProperty("chromepath");
+//    	
+    	System.setProperty("webdriver.chrome.driver", "\\usr\\bin\\chromedriver");
 		    	
 //		WebDriverManager.chromedriver().setup();
 		
 		 ChromeOptions options = new ChromeOptions();
-		 options.setBinary("/usr/bin/chromedriver");
+		 options.setBinary("\\usr\\bin\\chromedriver");
 		 options.addArguments("-headless");
 		 options.addArguments("--no-sandbox");
 		 options.addArguments("--disable-dev-shm-usage");
