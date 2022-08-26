@@ -99,13 +99,15 @@ public class SeleniumUtility {
         
 //        driver = new RemoteWebDriver(service.getUrl(), DesiredCapabilities.chrome());
 
-    	WebDriverManager.chromedriver().setup();
+//    	WebDriverManager.chromedriver().setup();
     	 ChromeOptions options = new ChromeOptions();    	 
     	 options.setBinary("/usr/bin/chromedriver");
     	 
     	 System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
     	 options.addArguments("--headless");
     	 options.addArguments("--no-sandbox");
+    	 options.addArguments("--disable-dev-shm-usage");
+    	 
     	 
     	driver = new ChromeDriver(options);
         this.driver= driver;
