@@ -78,7 +78,19 @@ public class SeleniumUtility {
 		         } catch (IOException e) {
 		             e.printStackTrace();
 		         }
-		         driver = new  RemoteWebDriver(service.getUrl(), DesiredCapabilities.chrome());
+		         
+		         ChromeOptions opts = new ChromeOptions();
+		         opts.addArguments("--headless");	
+		         opts.addArguments("-incognito");
+		         opts.addArguments("--no-sandbox");      
+
+		         try {
+					driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), opts);
+				} catch (MalformedURLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+//		         driver = new  RemoteWebDriver(service.getUrl(), DesiredCapabilities.chrome());
     
 		         driver.get(webURL);
     }
