@@ -4,9 +4,11 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.*;
@@ -14,6 +16,8 @@ import org.openqa.selenium.support.ui.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import junit.framework.Assert;
+
+import java.io.File;
 
 //import runner.ScenarioLogger;
 
@@ -47,23 +51,36 @@ public class SeleniumUtility {
 //    	
 //    	System.getProperty("chromepath");
 //    	
-    	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-		    	
-//		WebDriverManager.chromedriver().setup();
-		
-		 ChromeOptions options = new ChromeOptions();
-//		 options.setBinary("/usr/bin/google-chrome");
-		 options.setHeadless(true);
-		 options.addArguments("--no-sandbox");
-		 options.addArguments("--disable-dev-shm-usage");
-		 options.addArguments("start-maximized");
-//		 options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
-//		 options.setExperimentalOption("useAutomationExtension", false);
-		 driver = new ChromeDriver(options);
+//    	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+//		    	
+////		WebDriverManager.chromedriver().setup();
+//		
+//		 ChromeOptions options = new ChromeOptions();
+////		 options.setBinary("/usr/bin/google-chrome");
+//		 options.setHeadless(true);
+//		 options.addArguments("--no-sandbox");
+//		 options.addArguments("--disable-dev-shm-usage");
+//		 options.addArguments("start-maximized");
+////		 options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+////		 options.setExperimentalOption("useAutomationExtension", false);
+//		 driver = new ChromeDriver(options);
 //		 driver.get(webURL);
-		 PageFactory.initElements(driver, this);
+		
+		 
+		 
+		 System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+		 ChromeDriverService service = new ChromeDriverService.Builder()
+		                 .usingDriverExecutable(new File("/usr/bin/chromedriver"))
+		                 .usingAnyFreePort()
+		                 .build();
+		         try {
+		             service.start();
+		         } catch (IOException e) {
+		             e.printStackTrace();
+		         }
+		         driver = new  RemoteWebDriver(service.getUrl(), DesiredCapabilities.chrome());
     
-
+		         driver.get(webURL);
     }
 
 
