@@ -62,6 +62,7 @@ public class SeleniumUtility {
 	        chromeOptions.addArguments("--no-sandbox");                
 	        chromeOptions.addArguments("--single-process");            
 	        chromeOptions.addArguments("--disable-dev-shm-usage");
+	        chromeOptions.addArguments("--remote-debugging-port=9222");
 		 driver = new ChromeDriver(chromeOptions);
 		 driver.get(webURL); 	
     	
