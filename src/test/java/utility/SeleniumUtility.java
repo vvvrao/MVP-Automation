@@ -38,16 +38,16 @@ public class SeleniumUtility {
     public static String password = generateRandomString(10);
     public SeleniumUtility() {
     	
-    	System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome-stable/chromedriver");
+    	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
 		    	
 //		WebDriverManager.chromedriver().setup();
 		
 		 ChromeOptions options = new ChromeOptions();
-		 options.setBinary("/usr/bin/google-chrome-stable/chromedriver");
+		 options.setBinary("/usr/bin/chromedriver");
 		 options.addArguments("-headless");
 		 options.addArguments("--no-sandbox");
 		 options.addArguments("--disable-dev-shm-usage");
-		 driver = new ChromeDriver();
+		 driver = new ChromeDriver(options);
 //		 driver.get(webURL);
 		 PageFactory.initElements(driver, this);
     
