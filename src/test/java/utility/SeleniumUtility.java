@@ -99,17 +99,19 @@ public class SeleniumUtility {
         
 //        driver = new RemoteWebDriver(service.getUrl(), DesiredCapabilities.chrome());
 
-//    	WebDriverManager.chromedriver().setup();
-    	 ChromeOptions options = new ChromeOptions();    	 
-    	 options.setBinary("/usr/bin/chromedriver");
+    	WebDriverManager.chromedriver().setup();
+//    	 ChromeOptions options = new ChromeOptions();    	 
+//    	 options.setBinary("/usr/bin/chromedriver");
+//    	 
+//    	 System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+//    	 options.addArguments("--headless");
+//    	 options.addArguments("--no-sandbox");
+//    	 options.addArguments("--disable-dev-shm-usage");
+//    	driver = new ChromeDriver(options);
+
+//    	 
     	 
-    	 System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-    	 options.addArguments("--headless");
-    	 options.addArguments("--no-sandbox");
-    	 options.addArguments("--disable-dev-shm-usage");
-    	 
-    	 
-    	driver = new ChromeDriver(options);
+    	driver = new ChromeDriver();
         this.driver= driver;
         // Initialize Ajax page initialisation
         PageFactory.initElements(driver, this);
@@ -122,7 +124,7 @@ public class SeleniumUtility {
         webURL = readPropertyfile("test.properties", "web_URL");
         System.out.println(webURL);
 
-//        driver.manage().window().maximize();
+        driver.manage().window().maximize();
         driver.get(webURL);
     }
 
