@@ -46,7 +46,7 @@ public class SeleniumUtility {
 //    	
 //    	System.getProperty("chromepath");
 //    	
-    	System.setProperty("webdriver.chrome.driver", "\\src\\test\\java\\resources\\chromedriver.exe");
+    	System.setProperty("webdriver.chrome.driver", "//var//lib//jenkins//workspace//DXC_Pipeline//src//test//java//resources//chromedriver.exe");
 		    	
 //		WebDriverManager.chromedriver().setup();
 		
