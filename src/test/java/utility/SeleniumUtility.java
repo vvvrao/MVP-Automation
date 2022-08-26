@@ -105,14 +105,15 @@ public class SeleniumUtility {
 //         System.setProperty("webdriver.chrome.driver",getLocation);
 //         WebDriver iDriver = new ChromeDriver(chromeOptions);
 
-        WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker();
-        
-        driver =wdm.create();
+    	
+       
     
 //    ChromeOptions options = new ChromeOptions();
 //	 options.addArguments("-headless");
 //	 options.setBinary("/user/bin/chromedriver");
 	 
+    	
+    	WebDriverManager.chromedriver().setup();
 	 driver = new ChromeDriver();
 	 PageFactory.initElements(driver, this);
 		
@@ -122,7 +123,7 @@ public class SeleniumUtility {
 ////   // Initialize Ajax page initialisation
 //   
 
-//	 WebDriverManager.chromedriver().setup();
+//	 
 
 //System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
 	 		
