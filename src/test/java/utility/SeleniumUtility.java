@@ -80,7 +80,7 @@ public class SeleniumUtility {
 
     	
     	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-//    	WebDriverManager.chromedriver().setup();
+    	WebDriverManager.chromedriver().setup();
     	ChromeOptions options = new ChromeOptions();
 
     	
@@ -88,7 +88,7 @@ public class SeleniumUtility {
 //    	options.addArguments("--window-size=1920,1080");
     	options.addArguments("--no-sandbox");
     	options.addArguments("--headless");
-    	options.setBinary("/usr/bin/google-chrome/chrome");
+    	options.setBinary("/usr/bin/google-chrome");
 //    	options.addArguments("--disable-gpu");
 //    	options.addArguments("--disable-crash-reporter");
 //    	options.addArguments("--disable-extensions");
