@@ -44,51 +44,16 @@ public class SeleniumUtility {
     public SeleniumUtility() {
     	
     	
-//    	System.setProperty("webdriver.chrome.driver", "\\var\\www\\Jar\\chromedriver");
-//    	Capability= DesiredCapabilities.chrome();  
-//    	Capability.setPlatform(org.openqa.selenium.Platform.ANY);
-//    	browser=new RemoteWebDriver(new URL(nodeURL),Capability);
 //    	
-//    	System.getProperty("chromepath");
-//    	
-//    	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-//    	
-//    	System.setProperty("webdriver.chrome.logfile", "C:\\chromedriver.log");
-//
-//    	System.setProperty("webdriver.chrome.verboseLogging", "true");
-//		    	
-//		WebDriverManager.chromedriver().setup();
-//////		
-////		
-//		 ChromeOptions chromeOptions = new ChromeOptions();
-//	        chromeOptions.setBinary("/usr/bin/chromedriver");
-//	        chromeOptions.addArguments("--headless");                  
-//	        chromeOptions.addArguments("--no-sandbox");                
-//	        chromeOptions.addArguments("--single-process");            
-//	        chromeOptions.addArguments("--disable-dev-shm-usage");
-//	        chromeOptions.addArguments("--remote-debugging-port=9222");
-//		 driver = new ChromeDriver(chromeOptions);
-//		 driver.get(webURL); 	
     	
-      
-//    	ChromeDriverService service = ChromeDriverService.createDefaultService();
-//    	service.CHROME_DRIVER_VERBOSE_LOG_PROPERTY= false;
-//    	service.EnableVerboseLogging = false
-//    	service
-//    	service.SuppressInitialDiagnosticInformation = true;
-//    	service.HideCommandPromptWindow = true;
-
-    	
-//    	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+    	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
     	WebDriverManager.chromedriver().setup();
-    	ChromeOptions options = new ChromeOptions();
-
-    	
+    	ChromeOptions options = new ChromeOptions();    	
 
 //    	options.addArguments("--window-size=1920,1080");
     	options.addArguments("--no-sandbox");
     	options.addArguments("--headless");
-//    	options.setBinary("/usr/bin/google-chrome");
+    	options.setBinary("/usr/bin/google-chrome");
 //    	options.addArguments("--disable-gpu");
 //    	options.addArguments("--disable-crash-reporter");
 //    	options.addArguments("--disable-extensions");
@@ -101,25 +66,7 @@ public class SeleniumUtility {
 
     	driver = new ChromeDriver(options);
     	driver.get(webURL);
-		 
-		 
-//		 System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-//		 ChromeDriverService service = new ChromeDriverService.Builder()
-//		                 .usingDriverExecutable(new File("/usr/bin/chromedriver"))
-//		                 .usingAnyFreePort()
-//		                 .build();
-//		         try {
-//		             service.start();
-//		         } catch (IOException e) {
-//		             e.printStackTrace();
-//		         }
-		         
-//		         ChromeOptions opts = new ChromeOptions();
-//		         
-//		         opts.setBinary("/usr/bin/google-chrome");
-//		         opts.addArguments("--headless");	
-//		         opts.addArguments("-incognito");
-//		         opts.addArguments("--no-sandbox");      
+
 
 		       
 		         
