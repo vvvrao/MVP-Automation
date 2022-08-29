@@ -58,12 +58,7 @@ public class LoginSteps{
        //registeration not working
     }
 
-//    @Then("user clicks on Accounts tab on dashboard")
-//    public void user_clicks_on_Accounts_tab_on_dashboard() throws InterruptedException {
-//
-//         lp.clickaccountsTab();
-//
-//    }
+
     @Then("user gets prompted with my accounts page")
     public void user_gets_prompted_with_my_accounts_page(){
          lp.myaccountsvisible();

@@ -167,6 +167,3 @@ public class LoginPage extends SeleniumUtility  {
 
 }
 
-
-//*[contains(@class,'sc-idOiZg bwAMjs nav-link')]//..//*[contains(text(),'Accounts')]
-//*[contains(@class,'sc-idOiZg bwAMjs nav-link')]//..//*[contains(text(),Accounts)]

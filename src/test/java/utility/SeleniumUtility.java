@@ -40,81 +40,30 @@ public class SeleniumUtility {
     public static String password = generateRandomString(10);
     public SeleniumUtility() {
     	
-    	
-//        ChromeOptions options = new ChromeOptions();
-//        options.setBinary("/usr/bin/google-chrome/chromedriver");
-//        options.addArguments("--no-sandbox");
-//        options.addArguments("--disable-dev-shm-usage");
-//        options.addArguments("headless");
-//        
-//        System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
-        
-        
-//        final String CHROMEDRIVER_EXE = "chromedriver";
-        
-//        ClassLoader classLoader = getClass().getClassLoader();
-//        String filePath = classLoader.getResource(CHROMEDRIVER_EXE).getFile();
-//        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-//        ChromeDriverService service = new ChromeDriverService.Builder()
-//                .usingDriverExecutable(new File(filePath))
-//                .build();
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--no-sandbox"); // Bypass OS security model, MUST BE THE VERY FIRST OPTION
-//        options.addArguments("--headless");
-//        options.setExperimentalOption("useAutomationExtension", false);
-//        options.addArguments("start-maximized"); // open Browser in maximized mode
-//        options.addArguments("disable-infobars"); // disabling infobars
-//        options.addArguments("--disable-extensions"); // disabling extensions
-////        options.addArguments("--disable-gpu"); // applicable to windows os only
-//        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-//        options.merge(capabilities);
-//        this.driver = new ChromeDriver(service, options);ChromeOptions ChromeOptions = new ChromeOptions();
-    	
-    	
-//        ChromeOptions options = new ChromeOptions();
-//        WebDriverManager.chromedriver().proxyUser(System.getenv("HTTPS_PROXY_USER"));
-//        WebDriverManager.chromedriver().proxyPass(System.getenv("HTTPS_PROXY_PASS"));
-//        WebDriverManager.chromedriver().proxy(System.getenv("HTTPS_PROXY")).setup();
-//         options.addArguments("--headless");
-//        options.addArguments("--no-sandbox");
-//        options.addArguments("--disable-gpu");   
-//        options.addArguments("--disable-dev-shm-usage");
-//        options.setExperimentalOption("useAutomationExtension", false);
-//      options.addArguments("start-maximized"); // open Browser in maximized mode
-//      options.addArguments("disable-infobars"); // disabling infobars
-//      options.addArguments("--disable-extensions"); 
-        	
-    	
-//    	System.setProperty("webdriver.chrome.driver", "/var/lib/jenkins/jobs/MVP-Automation/workspace/AOB_Automation/src/test/java/resources/chromedriver.exe");
-//    	ChromeDriverService service = new ChromeDriverService.Builder()
-//    	                .usingDriverExecutable(new File("/usr/bin/google-chrome/chromedriver"))
-//    	                .usingAnyFreePort()
-//    	                .build();
-//    	        try {
-//    	            service.start();
-//    	        } catch (IOException e) {
-//    	            e.printStackTrace();
-//    	        }
-//    	        return new RemoteWebDriver(service.getUrl(), DesiredCapabilities.chrome());
-        
-//        driver = new RemoteWebDriver(service.getUrl(), DesiredCapabilities.chrome());
+    	// We could use any driver for our tests...
+    	DesiredCapabilities capabilities = new DesiredCapabilities();
 
-    	WebDriverManager.chromedriver().setup();
-//    	 ChromeOptions options = new ChromeOptions();    	 
-//    	 options.setBinary("/usr/bin/chromedriver");
-//    	 
-//    	 System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-//    	 options.addArguments("--headless");
-//    	 options.addArguments("--no-sandbox");
-//    	 options.addArguments("--disable-dev-shm-usage");
-//    	driver = new ChromeDriver(options);
+    	// ... but only if it supports javascript
+    	capabilities.setJavascriptEnabled(true);
 
+    	// Get a handle to the driver. This will throw an exception
+    	// if a matching driver cannot be located
+    	WebDriver driver = new RemoteWebDriver(capabilities);
+
+    	// Query the driver to find out more information
+    	Capabilities actualCapabilities = ((RemoteWebDriver) driver).getCapabilities();
+
+    	// And now use it
+    	driver.get("http://www.google.com");
+
+//    	WebDriverManager.chromedriver().setup();
+//    	
+//    	
 //    	 
-    	 
-    	driver = new ChromeDriver();
-        this.driver= driver;
-        // Initialize Ajax page initialisation
-        PageFactory.initElements(driver, this);
+//    	driver = new ChromeDriver();
+//        this.driver= driver;
+//        // Initialize Ajax page initialisation
+//        PageFactory.initElements(driver, this);
 
     }
 
