@@ -46,13 +46,13 @@ public class SeleniumUtility {
     	
 //    	 webURL = readPropertyfile("test.properties", "web_URL");
     	
-    	System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
-//    	WebDriverManager.chromedriver().setup();
+//    	System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
+    	WebDriverManager.chromedriver().setup();
     	ChromeOptions options = new ChromeOptions();    	
 
 //    	options.addArguments("--window-size=1920,1080");
 //    	options.addArguments("--no-sandbox");
-    	options.addArguments("--headless");
+//    	options.addArguments("--headless");
 //    	options.setBinary("C:\\Program Files\\Google\\Chrome\\Application");
 //    	options.addArguments("--disable-gpu");
 //    	options.addArguments("--disable-crash-reporter");
@@ -64,7 +64,7 @@ public class SeleniumUtility {
 //    	options.addArguments("--disable-setuid-sandbox");
 //    	options.addArguments("--output=/dev/null");
 
-    	driver = new ChromeDriver(options);
+    	driver = new ChromeDriver();
     	
     	
     	 PageFactory.initElements(driver, this);
