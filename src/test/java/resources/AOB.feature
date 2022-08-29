@@ -1,4 +1,4 @@
-c
+
 Feature: Advantage bank UI testing
 
   @TC_001
