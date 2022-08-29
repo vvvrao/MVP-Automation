@@ -53,7 +53,7 @@ public class SeleniumUtility {
 //    	
     	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
     	
-    	System.setProperty("webdriver.chrome.logfile", "D:\\chromedriver.log");
+    	System.setProperty("webdriver.chrome.logfile", "C:\\chromedriver.log");
 
     	System.setProperty("webdriver.chrome.verboseLogging", "true");
 //		    	
