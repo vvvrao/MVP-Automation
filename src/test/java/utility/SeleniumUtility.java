@@ -79,7 +79,7 @@ public class SeleniumUtility {
 //    	service.HideCommandPromptWindow = true;
 
     	
-    	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+//    	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
     	WebDriverManager.chromedriver().setup();
     	ChromeOptions options = new ChromeOptions();
 
@@ -88,7 +88,7 @@ public class SeleniumUtility {
 //    	options.addArguments("--window-size=1920,1080");
     	options.addArguments("--no-sandbox");
     	options.addArguments("--headless");
-    	options.setBinary("/usr/bin/google-chrome");
+//    	options.setBinary("/usr/bin/google-chrome");
 //    	options.addArguments("--disable-gpu");
 //    	options.addArguments("--disable-crash-reporter");
 //    	options.addArguments("--disable-extensions");
@@ -96,6 +96,7 @@ public class SeleniumUtility {
 //    	options.addArguments("--disable-logging");
 //    	options.addArguments("--disable-dev-shm-usage");
     	options.addArguments("--log-level=3");
+    	options.addArguments("--disable-setuid-sandbox");
 //    	options.addArguments("--output=/dev/null");
 
     	driver = new ChromeDriver(options);
