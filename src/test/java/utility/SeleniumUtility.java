@@ -79,15 +79,16 @@ public class SeleniumUtility {
 //    	service.HideCommandPromptWindow = true;
 
     	
-    	WebDriverManager.chromedriver().setup();
+    	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+//    	WebDriverManager.chromedriver().setup();
     	ChromeOptions options = new ChromeOptions();
 
-
+    	
 
 //    	options.addArguments("--window-size=1920,1080");
     	options.addArguments("--no-sandbox");
     	options.addArguments("--headless");
-    	options.setBinary("/usr/bin/google-chrome");
+    	options.setBinary("/usr/bin/google chrome/chrome");
 //    	options.addArguments("--disable-gpu");
 //    	options.addArguments("--disable-crash-reporter");
 //    	options.addArguments("--disable-extensions");
