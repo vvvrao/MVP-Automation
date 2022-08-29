@@ -80,7 +80,7 @@ public class SeleniumUtility {
 
     	
 //    	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-    	WebDriverManager.chromedriver().setup();
+    	WebDriverManager.chromedriver().driverVersion("81.0.4044.138").setup();
     	ChromeOptions options = new ChromeOptions();
 
     	
