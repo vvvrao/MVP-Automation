@@ -11,6 +11,12 @@ public class LoginPage extends SeleniumUtility  {
 
      /* Login Page
      **/
+	
+		public static String password = generateRandomString(10);
+	    public static String username = generateRandomString(10);
+	    public static String email = generateRandomString(10) + "@gmail.com";
+	    public static String firstname = generateRandomString(5);
+	    public static String lastname = generateRandomString(3);
 
     @FindBy(xpath = "//input[@name='username']")
     private WebElement usrName;
@@ -94,6 +100,16 @@ public class LoginPage extends SeleniumUtility  {
         clickElement(loginbtn);
     }
 
+    
+   public void login_application_withglobaluser() throws Exception {
+	   
+	   SeleniumUtility.launchApplication();
+
+       SendtexttoElement(usrName,username);
+       SendtexttoElement(passwrd,password);
+
+       clickElement(loginbtn);
+   }
 
     public void clickregisterTab(){
 
@@ -146,15 +162,42 @@ public class LoginPage extends SeleniumUtility  {
         clickElement(tabclick(tabname));
     }
 
+    
+    public static String generateRandomString(int n) {
 
+        // n = 10;
+
+         // chose a Character random from this String
+         String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ12345" + "abcdefghijklmnopqrstuvxyz67890" + "1234567890";
+
+         // create StringBuffer size of AlphaNumericString
+         StringBuilder sb = new StringBuilder(n);
+
+         for (int i = 0; i < n; i++) {
+
+             // generate a random number between
+             // 0 to AlphaNumericString variable length
+             int index = (int) (AlphaNumericString.length() * Math.random());
+
+             // add Character one by one in end of sb
+             sb.append(AlphaNumericString.charAt(index));
+         }
+
+         return sb.toString();
+     }
+
+    
+   
+    
+    
     public void entervaluesinregisterpage(){
 
-        sendtexttoregistration(firstnameTxt);
-        sendtexttoregistration(lastnameTxt);
-        sendemailtoregistration(emailTxt);
-        sendtexttoregistration(usernameTxt);
-        sendpasswordtoregistration(passwordTxt);
-        sendpasswordtoregistration(confirmPassTxt);
+    	SendtexttoElement(firstnameTxt,firstname);
+    	SendtexttoElement(lastnameTxt,lastname);
+    	SendtexttoElement(emailTxt,email);
+    	SendtexttoElement(usernameTxt,username);
+    	SendtexttoElement(passwordTxt,password);
+    	SendtexttoElement(confirmPassTxt,password);
 
     }
 

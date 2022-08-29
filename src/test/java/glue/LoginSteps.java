@@ -4,9 +4,6 @@ package glue;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-
-
-
 import pages.LoginPage;
 
 import static utility.SeleniumUtility.driver;
@@ -53,12 +50,7 @@ public class LoginSteps{
          lp.clickbutton(string);
     }
 
-    @Then("User must be registered")
-    public void user_must_be_registered() {
-       //registeration not working
-    }
-
-
+ 
     @Then("user gets prompted with my accounts page")
     public void user_gets_prompted_with_my_accounts_page(){
          lp.myaccountsvisible();
@@ -68,7 +60,20 @@ public class LoginSteps{
     public void user_click_on_tab_on_dashboard(String string) throws InterruptedException {
          lp.clickTab(string);
     }
-
+    
+    @Given("user logs into Advantage bank using registeration credentials")
+    public void loginwith_registercred() throws Exception {
+    	
+    	lp.login_application_withglobaluser();
+    	
+    }
+    
+    
+    @Then("User must be registered")
+    public void user_must_be_registered() {
+        
+    	 lp.validate_logo();
+    }
     
     @Then("close app")
     public void close_app() {

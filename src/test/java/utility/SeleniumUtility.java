@@ -37,13 +37,11 @@ public class SeleniumUtility {
 
 
 
-    public static String password = generateRandomString(10);
-    public SeleniumUtility() {
-    	
+   
+    public SeleniumUtility() {   	
     	
 
-    	WebDriverManager.chromedriver().setup();
-    	
+    	WebDriverManager.chromedriver().setup(); 
     	
     	 
     	driver = new ChromeDriver();
@@ -105,54 +103,33 @@ public class SeleniumUtility {
 
     }
 
-    public static void sendpasswordtoregistration(WebElement ele){
-        try{
-//            ele.gener
-            ele.sendKeys(password);
-        } catch (ElementNotInteractableException e) {
+//    public static void sendpasswordtoregistration(WebElement ele){
+//        try{
+//
+//            ele.sendKeys(password);
+//        } catch (ElementNotInteractableException e) {
+//
+//            throw e;
+//
+//        }
+//    }
+//    public static void  sendtexttoregistration(WebElement ele){
+//        try{
+//            ele.sendKeys(generateRandomString(10));
+//        }catch(ElementNotInteractableException e){
+//            throw e;
+//        }
+//    }
+//
+//    public static void sendemailtoregistration(WebElement ele){
+//        try{
+//            ele.sendKeys(generateRandomString(10)+"@gmail.com");
+//        } catch(ElementNotInteractableException e){
+//            throw e;
+//        }
+//    }
 
-            throw e;
-
-        }
-    }
-    public static void  sendtexttoregistration(WebElement ele){
-        try{
-            ele.sendKeys(generateRandomString(10));
-        }catch(ElementNotInteractableException e){
-            throw e;
-        }
-    }
-
-    public static void sendemailtoregistration(WebElement ele){
-        try{
-            ele.sendKeys(generateRandomString(10)+"@gmail.com");
-        } catch(ElementNotInteractableException e){
-            throw e;
-        }
-    }
-
-    public static String generateRandomString(int n) {
-
-       // n = 10;
-
-        // chose a Character random from this String
-        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ12345" + "abcdefghijklmnopqrstuvxyz67890" + "1234567890";
-
-        // create StringBuffer size of AlphaNumericString
-        StringBuilder sb = new StringBuilder(n);
-
-        for (int i = 0; i < n; i++) {
-
-            // generate a random number between
-            // 0 to AlphaNumericString variable length
-            int index = (int) (AlphaNumericString.length() * Math.random());
-
-            // add Character one by one in end of sb
-            sb.append(AlphaNumericString.charAt(index));
-        }
-
-        return sb.toString();
-    }
+   
 
     public void switchTab(int i){
         List<String> tabs1 = new ArrayList<String>(driver.getWindowHandles());
