@@ -94,7 +94,7 @@ public class SeleniumUtility {
 //    	options.addArguments("--disable-in-process-stack-traces");
 //    	options.addArguments("--disable-logging");
 //    	options.addArguments("--disable-dev-shm-usage");
-//    	options.addArguments("--log-level=3");
+    	options.addArguments("--log-level=3");
 //    	options.addArguments("--output=/dev/null");
 
     	driver = new ChromeDriver(options);
