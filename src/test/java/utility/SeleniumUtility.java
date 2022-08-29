@@ -51,17 +51,17 @@ public class SeleniumUtility {
 //    	
 //    	System.getProperty("chromepath");
 //    	
-    	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-    	
-    	System.setProperty("webdriver.chrome.logfile", "C:\\chromedriver.log");
-
-    	System.setProperty("webdriver.chrome.verboseLogging", "true");
+//    	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+//    	
+//    	System.setProperty("webdriver.chrome.logfile", "C:\\chromedriver.log");
+//
+//    	System.setProperty("webdriver.chrome.verboseLogging", "true");
 //		    	
-//		WebDriverManager.chromedriver().setup();
+		WebDriverManager.chromedriver().setup();
 ////		
 //		
 		 ChromeOptions chromeOptions = new ChromeOptions();
-	        chromeOptions.setBinary("/usr/bin/google-chrome");
+	        chromeOptions.setBinary("/usr/bin/chromedriver");
 	        chromeOptions.addArguments("--headless");                  
 	        chromeOptions.addArguments("--no-sandbox");                
 	        chromeOptions.addArguments("--single-process");            
