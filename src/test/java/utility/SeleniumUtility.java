@@ -71,30 +71,32 @@ public class SeleniumUtility {
 //		 driver.get(webURL); 	
     	
       
-    	ChromeDriverService service = ChromeDriverService.createDefaultService();
-    	service.CHROME_DRIVER_VERBOSE_LOG_PROPERTY= false;
+//    	ChromeDriverService service = ChromeDriverService.createDefaultService();
+//    	service.CHROME_DRIVER_VERBOSE_LOG_PROPERTY= false;
 //    	service.EnableVerboseLogging = false
 //    	service
 //    	service.SuppressInitialDiagnosticInformation = true;
 //    	service.HideCommandPromptWindow = true;
 
+    	
+    	WebDriverManager.chromedriver().setup();
     	ChromeOptions options = new ChromeOptions();
 
 
 
-    	options.addArguments("--window-size=1920,1080");
+//    	options.addArguments("--window-size=1920,1080");
     	options.addArguments("--no-sandbox");
     	options.addArguments("--headless");
-    	options.addArguments("--disable-gpu");
-    	options.addArguments("--disable-crash-reporter");
-    	options.addArguments("--disable-extensions");
-    	options.addArguments("--disable-in-process-stack-traces");
-    	options.addArguments("--disable-logging");
-    	options.addArguments("--disable-dev-shm-usage");
-    	options.addArguments("--log-level=3");
-    	options.addArguments("--output=/dev/null");
+//    	options.addArguments("--disable-gpu");
+//    	options.addArguments("--disable-crash-reporter");
+//    	options.addArguments("--disable-extensions");
+//    	options.addArguments("--disable-in-process-stack-traces");
+//    	options.addArguments("--disable-logging");
+//    	options.addArguments("--disable-dev-shm-usage");
+//    	options.addArguments("--log-level=3");
+//    	options.addArguments("--output=/dev/null");
 
-    	driver = new ChromeDriver(service, options);
+    	driver = new ChromeDriver(options);
     	driver.get(webURL);
 		 
 		 
