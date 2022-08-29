@@ -41,32 +41,33 @@ public class SeleniumUtility {
 
 
     public static String password = generateRandomString(10);
-    public SeleniumUtility() {
+    public SeleniumUtility()   {
     	
     	
-//    	
+//    	 webURL = readPropertyfile("test.properties", "web_URL");
     	
-    	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-    	WebDriverManager.chromedriver().setup();
+    	System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver"); 
+//    	WebDriverManager.chromedriver().setup();
     	ChromeOptions options = new ChromeOptions();    	
 
 //    	options.addArguments("--window-size=1920,1080");
-    	options.addArguments("--no-sandbox");
+//    	options.addArguments("--no-sandbox");
     	options.addArguments("--headless");
-    	options.setBinary("/usr/bin/google-chrome");
+//    	options.setBinary("C:\\Program Files\\Google\\Chrome\\Application");
 //    	options.addArguments("--disable-gpu");
 //    	options.addArguments("--disable-crash-reporter");
 //    	options.addArguments("--disable-extensions");
 //    	options.addArguments("--disable-in-process-stack-traces");
 //    	options.addArguments("--disable-logging");
 //    	options.addArguments("--disable-dev-shm-usage");
-    	options.addArguments("--log-level=3");
-    	options.addArguments("--disable-setuid-sandbox");
+//    	options.addArguments("--log-level=3");
+//    	options.addArguments("--disable-setuid-sandbox");
 //    	options.addArguments("--output=/dev/null");
 
     	driver = new ChromeDriver(options);
-    	driver.get(webURL);
-
+    	
+    	
+    	 PageFactory.initElements(driver, this);
 
 		       
 		         
