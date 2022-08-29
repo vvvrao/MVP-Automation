@@ -46,7 +46,7 @@ public class SeleniumUtility {
     	
 //    	 webURL = readPropertyfile("test.properties", "web_URL");
     	
-    	System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver"); 
+    	System.setProperty("webdriver.chrome.driver","C:\\Utils\\Selenium\\chromedriver.exe"); 
 //    	WebDriverManager.chromedriver().setup();
     	ChromeOptions options = new ChromeOptions();    	
 
