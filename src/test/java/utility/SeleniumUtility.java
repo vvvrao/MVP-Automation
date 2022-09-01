@@ -157,7 +157,7 @@ public class SeleniumUtility {
         try {
 
             element.click();
-//            ScenarioLogger.log("Screen:" + element);
+//            ScenarioLogger.log("Screen:" + element)
         }
         catch(ElementNotInteractableException e)
         {
@@ -167,19 +167,7 @@ public class SeleniumUtility {
         }
     }
 
-    public static  void clickElement1(WebDriver driver1, WebElement element) {
-        try {
 
-            element.click();
-//            ScenarioLogger.log("screen");
-        }
-        catch(ElementNotInteractableException e)
-        {
-//            ScenarioLogger.log( "screen");
-            e.getMessage();
-
-        }
-    }
 
 
 

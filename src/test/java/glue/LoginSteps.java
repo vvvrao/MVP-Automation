@@ -4,6 +4,7 @@ package glue;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import pages.LoginPage;
 
 import static utility.SeleniumUtility.driver;
@@ -20,23 +21,31 @@ public class LoginSteps{
     public void user_logs_into_Advantage_bank() throws Exception {
          lp.login_application();
 
+         Assert.assertEquals(true ,"user is able to login ");
+
      }
 
          @Then("A default Log in window of Advantage Bank Portal Should Open")
          public void a_default_log_in_window_of_advantage_bank_portal_should_open() {
              lp.validate_logo();
 
+             Assert.assertEquals(true ,"logo is visible ");
+
          }
 
     @Given("user navigates to advantage bank url")
     public void user_naviagtes_to_advantage_bank_url() throws Exception {
         lp.launchApplication();
+
+        Assert.assertEquals(true ,"user is able to launch the app ");
     }
 
     @And("click on Register tab")
     public void click_register_tab(){
 
          lp.clickregisterTab();
+
+        Assert.assertEquals(true ,"user is able to register ");
     }
 
     @Then("user enters all fields in the registration page")
@@ -48,23 +57,33 @@ public class LoginSteps{
     public void click_on_button(String string) {
 
          lp.clickbutton(string);
+
+        Assert.assertEquals(true ,"user is able to click button " +string);
     }
 
  
     @Then("user gets prompted with my accounts page")
     public void user_gets_prompted_with_my_accounts_page(){
          lp.myaccountsvisible();
+
+        Assert.assertEquals(true ,"user gets prompted with my accounts page ");
     }
+
+
 
     @Then("user click on {string} tab on dashboard")
     public void user_click_on_tab_on_dashboard(String string) throws InterruptedException {
          lp.clickTab(string);
+
+        Assert.assertEquals(true ,"user gets prompted with my accounts page ");
     }
     
     @Given("user logs into Advantage bank using registeration credentials")
     public void loginwith_registercred() throws Exception {
     	
     	lp.login_application_withglobaluser();
+
+        Assert.assertEquals(true ,"user is able to login");
     	
     }
     
@@ -73,12 +92,16 @@ public class LoginSteps{
     public void user_must_be_registered() {
         
     	 lp.validate_logo();
+
+        Assert.assertEquals(true ,"user is able to register");
     }
     
     @Then("close app")
     public void close_app() {
     	
     	driver.close();
+
+        Assert.assertEquals(true ,"user gets prompted with my accounts page ");
     }
 
 }
