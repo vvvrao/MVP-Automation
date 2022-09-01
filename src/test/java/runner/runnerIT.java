@@ -15,7 +15,7 @@ import static utility.SeleniumUtility.driver;
 
 import java.util.function.Predicate;
 
-@RunWith(OctaneCucumber.class)
+@RunWith(Cucumber.class)
 @CucumberOptions(features ="src/test/java/resources",
             plugin = {"html:target/cucumber.html","json:target/cucumber.json"},
         monochrome = true,
