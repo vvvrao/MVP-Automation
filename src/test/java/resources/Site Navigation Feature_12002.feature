@@ -12,4 +12,3 @@ Then user click on "Loans" tab on dashboard
 Then user click on "Cards" tab on dashboard
 Then user click on "Forecasts" tab on dashboard
 Then user click on "Stocks" tab on dashboard
-Then close app

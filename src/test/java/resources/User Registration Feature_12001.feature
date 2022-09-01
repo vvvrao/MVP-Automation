@@ -8,4 +8,3 @@ And click on Register tab
 Then user enters all fields in the registration page
 And click on "Register" button
 Then User must be registered
-Then close app

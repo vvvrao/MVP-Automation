@@ -27,11 +27,6 @@ import java.util.function.Predicate;
 
 public class runnerIT {
 
-//@AfterClass
-//    public static void teardown(){
-//
-//    driver.quit();
-//}
-//
+
 }
 
