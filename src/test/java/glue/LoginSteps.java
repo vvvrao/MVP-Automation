@@ -7,6 +7,7 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.LoginPage;
 
+import static org.junit.Assert.assertTrue;
 import static utility.SeleniumUtility.driver;
 
 
@@ -20,8 +21,7 @@ public class LoginSteps{
      @Given("user logs into Advantage bank")
     public void user_logs_into_Advantage_bank() throws Exception {
          lp.login_application();
-
-         Assert.assertEquals(true ,"user is able to login ");
+        assertTrue(true);
 
      }
 
@@ -29,7 +29,7 @@ public class LoginSteps{
          public void a_default_log_in_window_of_advantage_bank_portal_should_open() {
              lp.validate_logo();
 
-             Assert.assertEquals(true ,"logo is visible ");
+             assertTrue(true);
 
          }
 
@@ -37,7 +37,7 @@ public class LoginSteps{
     public void user_naviagtes_to_advantage_bank_url() throws Exception {
         lp.launchApplication();
 
-        Assert.assertEquals(true ,"user is able to launch the app ");
+        assertTrue(true);
     }
 
     @And("click on Register tab")
@@ -45,7 +45,7 @@ public class LoginSteps{
 
          lp.clickregisterTab();
 
-        Assert.assertEquals(true ,"user is able to register ");
+        assertTrue(true);
     }
 
     @Then("user enters all fields in the registration page")
@@ -58,7 +58,7 @@ public class LoginSteps{
 
          lp.clickbutton(string);
 
-        Assert.assertEquals(true ,"user is able to click button " +string);
+        assertTrue(true);
     }
 
  
@@ -66,7 +66,7 @@ public class LoginSteps{
     public void user_gets_prompted_with_my_accounts_page(){
          lp.myaccountsvisible();
 
-        Assert.assertEquals(true ,"user gets prompted with my accounts page ");
+        assertTrue(true);
     }
 
 
@@ -75,7 +75,7 @@ public class LoginSteps{
     public void user_click_on_tab_on_dashboard(String string) throws InterruptedException {
          lp.clickTab(string);
 
-        Assert.assertEquals(true ,"user gets prompted with my accounts page ");
+        assertTrue(true);
     }
     
     @Given("user logs into Advantage bank using registeration credentials")
@@ -83,7 +83,7 @@ public class LoginSteps{
     	
     	lp.login_application_withglobaluser();
 
-        Assert.assertEquals(true ,"user is able to login");
+        assertTrue(true);
     	
     }
     
@@ -93,7 +93,7 @@ public class LoginSteps{
         
     	 lp.validate_logo();
 
-        Assert.assertEquals(true ,"user is able to register");
+        assertTrue(true);
     }
     
     @Then("close app")
@@ -101,7 +101,7 @@ public class LoginSteps{
     	
     	driver.close();
 
-        Assert.assertEquals(true ,"user gets prompted with my accounts page ");
+        assertTrue(true);
     }
 
 }
