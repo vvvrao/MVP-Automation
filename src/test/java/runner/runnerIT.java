@@ -14,12 +14,11 @@ import static utility.SeleniumUtility.driver;
 
 import java.util.function.Predicate;
 
-import com.hpe.alm.octane.OctaneCucumber;
 
-@RunWith(OctaneCucumber.class)
+
+@RunWith(Cucumber.class)
 @CucumberOptions(features ="src/test/java/resources",
-            plugin = {"com.hpe.alm.octane.OctaneGherkinFormatter:gherkin-results/ManualRunnerTest_OctaneGherkinResults.xml",
-        "html:target/cucumber.html","json:target/cucumber.json"},
+            plugin = {"html:target/cucumber.html","json:target/cucumber.json"},
         monochrome = true,
         glue ={"glue"})
 
