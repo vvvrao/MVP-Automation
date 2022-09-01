@@ -18,7 +18,8 @@ import java.util.function.Predicate;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features ="src/test/java/resources",
-            plugin = {"html:target/cucumber.html","json:target/cucumber.json"},
+            plugin = {"junit:target/cucumber-reports/Cucumber.xml",
+                    "html:target/cucumber.html","json:target/cucumber.json"},
         monochrome = true,
         glue ={"glue"})
 
