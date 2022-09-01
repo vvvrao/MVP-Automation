@@ -147,11 +147,11 @@
                    <scope>test</scope>
                </dependency>
 
-        <dependency>
-            <groupId>com.hpe.alm.octane</groupId>
-            <artifactId>octane-cucumber-jvm</artifactId>
-            <version>12.55.7</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.hpe.alm.octane</groupId>-->
+<!--            <artifactId>octane-cucumber-jvm</artifactId>-->
+<!--            <version>12.55.7</version>-->
+<!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
        <!--  <dependency>
