@@ -16,21 +16,22 @@ import java.util.function.Predicate;
 
 
 
-@RunWith(Cucumber.class)
-@CucumberOptions(features ="src/test/java/resources",
-            plugin = {"junit:target/cucumber-reports/Cucumber.xml",
-                    "html:target/cucumber.html","json:target/cucumber.json"},
+        @RunWith(Cucumber.class)
+        @CucumberOptions(features ="src/test/java/resources",
+        plugin = {"pretty","junit:target/cucumber.xml",
+        "html:target/cucumber.html","json:target/cucumber.json"},
         monochrome = true,
-        glue ={"glue"})
+        glue ={"glue","hooks"},
+        publish=true)
 
 
 public class runnerIT {
 
-@AfterClass
-    public static void teardown(){
-
-    driver.quit();
-}
-	
+//@AfterClass
+//    public static void teardown(){
+//
+//    driver.quit();
+//}
+//
 }
 
