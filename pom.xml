@@ -142,13 +142,14 @@
                    <scope>test</scope>
                </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.hpe.alm.octane/octane-cucumber-jvm -->
 
-            <dependency>
-                <groupId>com.hpe.alm.octane</groupId>
-                <artifactId>octane-cucumber-jvm</artifactId>
-                <version>12.55.7</version>
-            </dependency>
+
+        <dependency>
+            <groupId>com.hpe.alm.octane</groupId>
+            <artifactId>octane-cucumber-jvm</artifactId>
+            <version>12.55.7</version>
+        </dependency>
+
 
 
 
@@ -163,7 +164,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.2</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
 

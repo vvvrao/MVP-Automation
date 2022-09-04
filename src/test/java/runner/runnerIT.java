@@ -2,14 +2,16 @@ package runner;
 
 
 
+import com.hpe.alm.octane.OctaneCucumber;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
-import com.hpe.alm.octane.OctaneCucumber;
 
-@RunWith(OctaneCucumber.class)
-@CucumberOptions(features ="src/test/java/resources",
-        plugin = {"pretty","json:target/cucumber.json","html:target/cucumber.html"},
+
+
+@RunWith(Cucumber.class)
+@CucumberOptions(plugin={"pretty","json:target/cucumber.json","html:target/cucumber.html"},
+features ="src/test/java/resources",
         monochrome = true,
         glue ={"glue","hooks"})
 
