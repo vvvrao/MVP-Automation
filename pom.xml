@@ -144,16 +144,6 @@
 
 
 
-        <dependency>
-            <groupId>com.hpe.alm.octane</groupId>
-            <artifactId>octane-cucumber-jvm</artifactId>
-            <version>12.55.7</version>
-        </dependency>
-
-
-
-
-
 
         <!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
         <dependency>

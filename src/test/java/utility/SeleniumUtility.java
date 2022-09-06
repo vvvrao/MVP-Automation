@@ -4,26 +4,21 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
-import org.openqa.selenium.chrome.ChromeOptions;
+
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
+
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.*;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-//import io.github.bonigarcia.wdm.WebDriverManager;
+
 import junit.framework.Assert;
 
-import java.io.File;
-
-//import runner.ScenarioLogger;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-//import java.time.Duration;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
