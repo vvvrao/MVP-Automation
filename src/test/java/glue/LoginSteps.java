@@ -1,9 +1,11 @@
 package glue;
 
 
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+
 import org.junit.Assert;
 import pages.LoginPage;
 
@@ -21,6 +23,7 @@ public class LoginSteps{
      @Given("user logs into Advantage bank")
     public void user_logs_into_Advantage_bank() throws Exception {
          lp.login_application();
+
         assertTrue(true);
 
      }
