@@ -14,7 +14,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(plugin={"pretty","json:target/cucumber.json","html:target/cucumber.html","junit:target/cucumber.xml"},
 features ="src/test/java/resources/",
         monochrome = true,
-        glue ={"glue","hooks"})
+        glue ={"glue","hooks"},
+tags= "@TID12001REV0.7.0 or @TID13001REV0.5.0 or @TID12002REV0.9.0")
 
 
 
