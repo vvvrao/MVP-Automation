@@ -1,14 +1,8 @@
 package glue;
 
-
-
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-//import io.cucumber.java.en.And;
-//import io.cucumber.java.en.Given;
-//import io.cucumber.java.en.Then;
-
-import cucumber.api.java.en.Then;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.LoginPage;
 
@@ -58,14 +52,14 @@ public class LoginSteps{
     public void user_enters_all_fields_in_the_registration_page() {
         lp.entervaluesinregisterpage();
     }
-//
-//    @Then("click on {string} button")
-//    public void click_on_button(String string) {
-//
-//         lp.clickbutton(string);
-//
-//        assertTrue(true);
-//    }
+
+    @Then("click on {string} button")
+    public void click_on_button(String string) {
+
+         lp.clickbutton(string);
+
+        assertTrue(true);
+    }
 
  
     @Then("user gets prompted with my accounts page")
@@ -77,12 +71,12 @@ public class LoginSteps{
 
 
 
-//    @Then("user click on {string} tab on dashboard")
-//    public void user_click_on_tab_on_dashboard(String string) throws InterruptedException {
-//         lp.clickTab(string);
-//
-//        assertTrue(true);
-//    }
+    @Then("user click on {string} tab on dashboard")
+    public void user_click_on_tab_on_dashboard(String string) throws InterruptedException {
+         lp.clickTab(string);
+
+        assertTrue(true);
+    }
     
     @Given("user logs into Advantage bank using registeration credentials")
     public void loginwith_registercred() throws Exception {

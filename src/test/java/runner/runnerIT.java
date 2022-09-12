@@ -20,8 +20,6 @@ features ="src/test/java/resources",
         glue ={"glue","hooks"})
 
 
-
-
 public class runnerIT {
 
 
