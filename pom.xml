@@ -8,7 +8,7 @@
     <artifactId>AOB_Automation</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
-        <cucumber.version>7.0.0</cucumber.version>
+<!--        <cucumber.version>7.0.0</cucumber.version>-->
         <report.pagetitle>MVP- VEP Automation report</report.pagetitle>
         <testng.version>7.4.0</testng.version>
         <numberOfParallelTests>1</numberOfParallelTests>
@@ -22,7 +22,7 @@
         <plugin>
         <groupId>org.apache.maven.plugins</groupId>
          <artifactId>maven-compiler-plugin</artifactId>
-         <version>3.8.1</version>         
+         <version>3.8.1</version>
         </plugin>
         <plugin>
          <groupId>org.apache.maven.plugins</groupId>
@@ -99,13 +99,13 @@
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-java</artifactId>
-            <version>${cucumber.version}</version>
-            <scope>test</scope>
-        </dependency>
-
+<!--        <dependency>-->
+<!--            <groupId>io.cucumber</groupId>-->
+<!--            <artifactId>cucumber-java</artifactId>-->
+<!--            <version>${cucumber.version}</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/info.cukes/gherkin -->
 
 
 
@@ -135,13 +135,19 @@
 
 
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
-            <dependency>
-                   <groupId>io.cucumber</groupId>
-                   <artifactId>cucumber-picocontainer</artifactId>
-                   <version>${cucumber.version}</version>
-                   <scope>test</scope>
-               </dependency>
+<!--            <dependency>-->
+<!--                   <groupId>io.cucumber</groupId>-->
+<!--                   <artifactId>cucumber-picocontainer</artifactId>-->
+<!--                   <version>${cucumber.version}</version>-->
+<!--                   <scope>test</scope>-->
+<!--               </dependency>-->
 
+        <!-- https://mvnrepository.com/artifact/com.hpe.alm.octane/octane-cucumber-jvm -->
+        <dependency>
+            <groupId>com.hpe.alm.octane</groupId>
+            <artifactId>octane-cucumber-jvm</artifactId>
+            <version>15.1.0</version>
+        </dependency>
 
 
 
@@ -159,12 +165,26 @@
         </dependency>
 
 
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>7.5.0</version>
-            <scope>compile</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>info.cukes</groupId>-->
+<!--            <artifactId>cucumber-java</artifactId>-->
+<!--            <version>1.2.5</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>info.cukes</groupId>-->
+<!--            <artifactId>cucumber-junit</artifactId>-->
+<!--            <version>1.2.5</version>-->
+<!--        </dependency>-->
+
+
+
+<!--        <dependency>-->
+<!--            <groupId>io.cucumber</groupId>-->
+<!--            <artifactId>cucumber-junit</artifactId>-->
+<!--            <version>7.5.0</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
 
@@ -189,6 +209,23 @@
         <!--            <version>3.0.2</version>-->
         <!--            <scope>test</scope>-->
         <!--        </dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>4.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>4.8.1</version>
+        </dependency>
+
 
     </dependencies>           
        

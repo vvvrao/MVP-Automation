@@ -2,9 +2,11 @@ package hooks;
 
 
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 
+//import io.cucumber.java.After;
+//import io.cucumber.java.Before;
+import org.junit.After;
+import org.junit.Before;
 
 
 import static utility.SeleniumUtility.driver;
@@ -14,7 +16,7 @@ import static utility.SeleniumUtility.driver;
 public class WebHooks {
 
 
-    @Before(order = 1)
+    @Before
     public void setTestname() {
 
         System.out.println("in before");
@@ -22,7 +24,7 @@ public class WebHooks {
 
 
 
-    @After(order=2)
+    @After
     public void afterRestScenario() {
 
             driver.quit();
