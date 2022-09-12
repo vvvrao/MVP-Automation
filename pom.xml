@@ -7,71 +7,25 @@
     <groupId>org.example</groupId>
     <artifactId>AOB_Automation</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <properties>
-<!--        <cucumber.version>7.0.0</cucumber.version>-->
+        <cucumber.version>7.0.0</cucumber.version>
         <report.pagetitle>MVP- VEP Automation report</report.pagetitle>
         <testng.version>7.4.0</testng.version>
         <numberOfParallelTests>1</numberOfParallelTests>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-       <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
-
     <build>
-    <plugins>
-        <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-         <artifactId>maven-compiler-plugin</artifactId>
-         <version>3.8.1</version>
-        </plugin>
-        <plugin>
-         <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.22.0</version>
-        <configuration>
-                <includes>  
-                  <include>**/*runnerIT.java</include>
-                </includes>
-            <testFailureIgnore>true</testFailureIgnore>
-          </configuration>  
-        </plugin>
-        </plugins>
-        </build>
-        
-        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-           <!--  <plugin>
-                <groupId>org.eclipse.m2e</groupId>
-                <artifactId>lifecycle-mapping</artifactId>
-                <version>1.0.0</version>
-                <configuration>
-                    <lifecycleMappingMetadata>
-                        <pluginExecutions>
-                            <pluginExecution>
-                                <pluginExecutionFilter>
-                                    <groupId>
-                                        com.lazerycode.selenium
-                                    </groupId>
-                                    <artifactId>
-                                        driver-binary-downloader-maven-plugin
-                                    </artifactId>
-                                    <versionRange>
-                                        [1.0.17,)
-                                    </versionRange>
-                                    <goals>
-                                        <goal>selenium</goal>
-                                    </goals>
-                                </pluginExecutionFilter>
-                                <action>
-                                    <ignore></ignore>
-                                </action>
-                            </pluginExecution>
-                        </pluginExecutions>
-                    </lifecycleMappingMetadata>
-                </configuration>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
             </plugin>
         </plugins>
-    </build> -->
- 
+    </build>
     <!--            <plugin>-->
     <!--                <groupId>net.masterthought</groupId>-->
     <!--                <artifactId>maven-cucumber-reporting</artifactId>-->
@@ -99,15 +53,20 @@
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
-<!--        <dependency>-->
-<!--            <groupId>io.cucumber</groupId>-->
-<!--            <artifactId>cucumber-java</artifactId>-->
-<!--            <version>${cucumber.version}</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-        <!-- https://mvnrepository.com/artifact/info.cukes/gherkin -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
 
 
+        <!--        <dependency>-->
+        <!--            <groupId>junit</groupId>-->
+        <!--           <artifactId>junit</artifactId>-->
+        <!--            <version>4.11</version>-->
+        <!--           <scope>test</scope>-->
+        <!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
@@ -115,43 +74,44 @@
             <artifactId>selenium-java</artifactId>
             <version>3.14.0</version>
         </dependency>
-        
-        <dependency>
-    <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-api</artifactId>
-    <version>1.6.1</version>
-</dependency>
-<dependency>
-    <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-simple</artifactId>
-    <version>1.6.1</version>
-</dependency>
-
- <dependency>
-    <groupId>io.github.bonigarcia</groupId>
-    <artifactId>webdrivermanager</artifactId>
-    <version>5.3.0</version>
-</dependency>
-
 
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
-<!--            <dependency>-->
-<!--                   <groupId>io.cucumber</groupId>-->
-<!--                   <artifactId>cucumber-picocontainer</artifactId>-->
-<!--                   <version>${cucumber.version}</version>-->
-<!--                   <scope>test</scope>-->
-<!--               </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>io.cucumber</groupId>-->
+        <!--            <artifactId>cucumber-picocontainer</artifactId>-->
+        <!--            <version>${cucumber.version}</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
 
-        <!-- https://mvnrepository.com/artifact/com.hpe.alm.octane/octane-cucumber-jvm -->
+
         <dependency>
-            <groupId>com.hpe.alm.octane</groupId>
-            <artifactId>octane-cucumber-jvm</artifactId>
-            <version>15.1.0</version>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.3.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>compile</scope>
         </dependency>
 
+        <!--https://mvnrepository.com/artifact/org.testng/testng-->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.assertj</groupId>-->
+        <!--            <artifactId>assertj-core</artifactId>-->
+        <!--            <version>3.16.1</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>s
 
-
-        <!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
+        <!- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
         <dependency>
             <groupId>net.masterthought</groupId>
             <artifactId>cucumber-reporting</artifactId>
@@ -160,41 +120,17 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
 
 
-<!--        <dependency>-->
-<!--            <groupId>info.cukes</groupId>-->
-<!--            <artifactId>cucumber-java</artifactId>-->
-<!--            <version>1.2.5</version>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>info.cukes</groupId>-->
-<!--            <artifactId>cucumber-junit</artifactId>-->
-<!--            <version>1.2.5</version>-->
-<!--        </dependency>-->
-
-
-
-<!--        <dependency>-->
-<!--            <groupId>io.cucumber</groupId>-->
-<!--            <artifactId>cucumber-junit</artifactId>-->
-<!--            <version>7.5.0</version>-->
-<!--            <scope>compile</scope>-->
-<!--        </dependency>-->
-
-        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
-
-
-<!--        <dependency>-->
-<!--            <groupId>xalan</groupId>-->
-<!--            <artifactId>xalan</artifactId>-->
-<!--            <version>2.7.2</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>7.5.0</version>
+            <scope>compile</scope>
+        </dependency>
 
 
         <!--        <dependency>-->
@@ -210,24 +146,6 @@
         <!--            <scope>test</scope>-->
         <!--        </dependency>-->
 
-        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>4.8.1</version>
-            <scope>test</scope>
-        </dependency>
-
-
-        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-java</artifactId>
-            <version>4.8.1</version>
-        </dependency>
-
-
-    </dependencies>           
-       
+    </dependencies>
 
 </project>

@@ -3,27 +3,25 @@ package hooks;
 
 
 
+
+
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-
-
-
-//import org.junit.After;
-//import org.junit.Before;
 
 import static utility.SeleniumUtility.driver;
 
 
 public class WebHooks {
 
-    @Before
+    @Before(order=1)
     public void setTestname() {
 
         System.out.println("in before");
     }
 
 
-    @After
+    @After(order=2)
     public void afterRestScenario() {
 
             driver.quit();

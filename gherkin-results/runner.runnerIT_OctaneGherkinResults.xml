@@ -1,97 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?><features version="1"><feature name="Advantage bank UI testing" path="src\test\java\resources\Register-Workflow_21007.feature" started="1662981410274" tag="@TID21007REV0.2.0"><file><![CDATA[#Auto generated Octane revision tag
-@TID21007REV0.2.0
-Feature: Advantage bank UI testing
-
-  Scenario: Check if user can register in advantage bank portal
-    Given user navigates to advantage bank url
-    And click on Register tab
-    Then user enters all fields in the registration page
-#    And click on "Register" button
-    Then User must be registered]]></file><scenarios><scenario name="Check if user can register in advantage bank portal"><steps><step duration="194866399" name="Given user navigates to advantage bank url" status="failed"><error_message><![CDATA[java.lang.ExceptionInInitializerError
-	at cucumber.deps.com.thoughtworks.xstream.XStream.setupConverters(XStream.java:820)
-	at cucumber.deps.com.thoughtworks.xstream.XStream.<init>(XStream.java:574)
-	at cucumber.deps.com.thoughtworks.xstream.XStream.<init>(XStream.java:530)
-	at cucumber.runtime.xstream.LocalizedXStreams$LocalizedXStream.<init>(LocalizedXStreams.java:50)
-	at cucumber.runtime.xstream.LocalizedXStreams.newXStream(LocalizedXStreams.java:37)
-	at cucumber.runtime.xstream.LocalizedXStreams.get(LocalizedXStreams.java:29)
-	at cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)
-	at cucumber.runtime.Runtime.runStep(Runtime.java:300)
-	at cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)
-	at cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)
-	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:44)
-	at cucumber.runtime.junit.ExecutionUnitRunner.run(ExecutionUnitRunner.java:102)
-	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:63)
-	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:18)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:70)
-	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:95)
-	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:38)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at cucumber.api.junit.Cucumber.run(Cucumber.java:100)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
-	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
-	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
-	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
-	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
-	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:235)
-	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:54)
-	at ✽.Given user navigates to advantage bank url(Register-Workflow_21007.feature:6)
-Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make field private final java.util.Comparator java.util.TreeMap.comparator accessible: module java.base does not "opens java.util" to unnamed module @515f550a
-	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
-	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
-	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:178)
-	at java.base/java.lang.reflect.Field.setAccessible(Field.java:172)
-	at cucumber.deps.com.thoughtworks.xstream.core.util.Fields.locate(Fields.java:39)
-	at cucumber.deps.com.thoughtworks.xstream.converters.collections.TreeMapConverter.<clinit>(TreeMapConverter.java:50)
-	at cucumber.deps.com.thoughtworks.xstream.XStream.setupConverters(XStream.java:820)
-	at cucumber.deps.com.thoughtworks.xstream.XStream.<init>(XStream.java:574)
-	at cucumber.deps.com.thoughtworks.xstream.XStream.<init>(XStream.java:530)
-	at cucumber.runtime.xstream.LocalizedXStreams$LocalizedXStream.<init>(LocalizedXStreams.java:50)
-	at cucumber.runtime.xstream.LocalizedXStreams.newXStream(LocalizedXStreams.java:37)
-	at cucumber.runtime.xstream.LocalizedXStreams.get(LocalizedXStreams.java:29)
-	at cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)
-	at cucumber.runtime.Runtime.runStep(Runtime.java:300)
-	at cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)
-	at cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)
-	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:44)
-	at cucumber.runtime.junit.ExecutionUnitRunner.run(ExecutionUnitRunner.java:102)
-	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:63)
-	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:18)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:70)
-	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:95)
-	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:38)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at cucumber.api.junit.Cucumber.run(Cucumber.java:100)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
-	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
-	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
-	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
-	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
-	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:235)
-	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:54)
-]]></error_message></step><step duration="0" name="And click on Register tab" status="skipped"/><step duration="0" name="Then user enters all fields in the registration page" status="skipped"/><step duration="0" name="Then User must be registered" status="skipped"/></steps></scenario></scenarios></feature></features>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="3" time="45.351">
+    <testcase classname="Advantage bank UI testing" name="Check if user can register in advantage bank portal" time="11.743">
+        <system-out><![CDATA[Given user navigates to advantage bank url..................................passed
+And click on Register tab...................................................passed
+Then user enters all fields in the registration page........................passed
+And click on "Register" button..............................................passed
+Then User must be registered................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Advantage bank UI testing" name="Check if user is able to login to Advantage bank" time="7.05">
+        <system-out><![CDATA[Given user logs into Advantage bank.........................................passed
+Then A default Log in window of Advantage Bank Portal Should Open...........passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Advantage bank UI testing" name="Check if all the navigation tabs are available and working" time="26.385">
+        <system-out><![CDATA[Given user logs into Advantage bank using registeration credentials.........passed
+Then A default Log in window of Advantage Bank Portal Should Open...........passed
+Then user click on "Accounts" tab on dashboard..............................passed
+Then user gets prompted with my accounts page...............................passed
+Then user click on "New Transfer" tab on dashboard..........................passed
+Then user click on "Loans" tab on dashboard.................................passed
+Then user click on "Cards" tab on dashboard.................................passed
+Then user click on "Forecasts" tab on dashboard.............................passed
+Then user click on "Stocks" tab on dashboard................................passed
+]]></system-out>
+    </testcase>
+</testsuite>
