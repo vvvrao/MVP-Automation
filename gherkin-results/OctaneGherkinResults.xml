@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><features version="1">
-    <feature name="Advantage bank UI testing" path="src\test\java\resources\Login-workflow_19005.feature" started="1662993830905" tag="@TID19005REV0.2.0">
+    <feature name="Advantage bank UI testing" path="src\test\java\resources\Login-workflow_19005.feature" started="1662995425387" tag="@TID19005REV0.2.0">
         <file><![CDATA[#Auto generated Octane revision tag
 @TID19005REV0.2.0
 Feature: Advantage bank UI testing
@@ -11,13 +11,13 @@ Feature: Advantage bank UI testing
         <scenarios>
             <scenario name="Check if user is able to login to Advantage bank">
                 <steps>
-                    <step duration="10836740300" name="Given user logs into Advantage bank" status="passed"/>
-                    <step duration="78318500" name="Then A default Log in window of Advantage Bank Portal Should Open" status="passed"/>
+                    <step duration="7505938500" name="Given user logs into Advantage bank" status="passed"/>
+                    <step duration="239644000" name="Then A default Log in window of Advantage Bank Portal Should Open" status="passed"/>
                 </steps>
             </scenario>
         </scenarios>
     </feature>
-    <feature name="Advantage bank UI testing" path="src\test\java\resources\Register-Workflow_21007.feature" started="1662993842042" tag="@TID21007REV0.3.0">
+    <feature name="Advantage bank UI testing" path="src\test\java\resources\Register-Workflow_21007.feature" started="1662995433532" tag="@TID21007REV0.3.0">
         <file><![CDATA[#Auto generated Octane revision tag
 @TID21007REV0.3.0
 Feature: Advantage bank UI testing
@@ -31,16 +31,16 @@ Feature: Advantage bank UI testing
         <scenarios>
             <scenario name="Check if user can register in advantage bank portal">
                 <steps>
-                    <step duration="5869203700" name="Given user navigates to advantage bank url" status="passed"/>
-                    <step duration="83180400" name="And click on Register tab" status="passed"/>
-                    <step duration="673515300" name="Then user enters all fields in the registration page" status="passed"/>
-                    <step duration="89821600" name="And click on &quot;Register&quot; button" status="passed"/>
-                    <step duration="107618800" name="Then User must be registered" status="passed"/>
+                    <step duration="5863434100" name="Given user navigates to advantage bank url" status="passed"/>
+                    <step duration="77762700" name="And click on Register tab" status="passed"/>
+                    <step duration="766264000" name="Then user enters all fields in the registration page" status="passed"/>
+                    <step duration="125046300" name="And click on &quot;Register&quot; button" status="passed"/>
+                    <step duration="141796600" name="Then User must be registered" status="passed"/>
                 </steps>
             </scenario>
         </scenarios>
     </feature>
-    <feature name="Advantage bank UI testing" path="src\test\java\resources\Tabs-workflow_21008.feature" started="1662993849104" tag="@TID21008REV0.2.0">
+    <feature name="Advantage bank UI testing" path="src\test\java\resources\Tabs-workflow_21008.feature" started="1662995440709" tag="@TID21008REV0.2.0">
         <file><![CDATA[#Auto generated Octane revision tag
 @TID21008REV0.2.0
 Feature: Advantage bank UI testing
@@ -58,15 +58,15 @@ Then user click on "Stocks" tab on dashboard]]></file>
         <scenarios>
             <scenario name="Check if all the navigation tabs are available and working">
                 <steps>
-                    <step duration="6261235300" name="Given user logs into Advantage bank using registeration credentials" status="passed"/>
-                    <step duration="95913000" name="Then A default Log in window of Advantage Bank Portal Should Open" status="passed"/>
-                    <step duration="3081048200" name="Then user click on &quot;Accounts&quot; tab on dashboard" status="passed"/>
-                    <step duration="52786800" name="Then user gets prompted with my accounts page" status="passed"/>
-                    <step duration="3116751000" name="Then user click on &quot;New Transfer&quot; tab on dashboard" status="passed"/>
-                    <step duration="3109610500" name="Then user click on &quot;Loans&quot; tab on dashboard" status="passed"/>
-                    <step duration="3099904300" name="Then user click on &quot;Cards&quot; tab on dashboard" status="passed"/>
-                    <step duration="3084326300" name="Then user click on &quot;Forecasts&quot; tab on dashboard" status="passed"/>
-                    <step duration="3155055800" name="Then user click on &quot;Stocks&quot; tab on dashboard" status="passed"/>
+                    <step duration="6189733200" name="Given user logs into Advantage bank using registeration credentials" status="passed"/>
+                    <step duration="86380300" name="Then A default Log in window of Advantage Bank Portal Should Open" status="passed"/>
+                    <step duration="3076064500" name="Then user click on &quot;Accounts&quot; tab on dashboard" status="passed"/>
+                    <step duration="49881800" name="Then user gets prompted with my accounts page" status="passed"/>
+                    <step duration="3121126100" name="Then user click on &quot;New Transfer&quot; tab on dashboard" status="passed"/>
+                    <step duration="3124788000" name="Then user click on &quot;Loans&quot; tab on dashboard" status="passed"/>
+                    <step duration="3106075200" name="Then user click on &quot;Cards&quot; tab on dashboard" status="passed"/>
+                    <step duration="3133146800" name="Then user click on &quot;Forecasts&quot; tab on dashboard" status="passed"/>
+                    <step duration="3112671200" name="Then user click on &quot;Stocks&quot; tab on dashboard" status="passed"/>
                 </steps>
             </scenario>
         </scenarios>
