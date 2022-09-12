@@ -1,9 +1,7 @@
 package glue;
 
 
-//import io.cucumber.java.en.And;
-//import io.cucumber.java.en.Given;
-//import io.cucumber.java.en.Then;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -84,11 +82,11 @@ public class LoginSteps{
     
     @Given("user logs into Advantage bank using registeration credentials")
     public void loginwith_registercred() throws Exception {
-    	
+
     	lp.login_application_withglobaluser();
 
         assertTrue(true);
-    	
+
     }
     
     
