@@ -1,5 +1,5 @@
 #Auto generated Octane revision tag
-@TID12002REV0.9.0
+@TID21008REV0.2.0
 Feature: Advantage bank UI testing
 
 Scenario: Check if all the navigation tabs are available and working 
