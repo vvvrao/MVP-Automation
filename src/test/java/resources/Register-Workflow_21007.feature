@@ -1,5 +1,5 @@
 #Auto generated Octane revision tag
-@TID20004REV0.2.0
+@TID21007REV0.2.0
 Feature: Advantage bank UI testing
 
   Scenario: Check if user can register in advantage bank portal
