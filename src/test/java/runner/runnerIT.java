@@ -13,8 +13,7 @@ import org.junit.runner.RunWith;
 
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin={
-        "junit:target/cucumber.json" ,"com.hpe.alm.octane.OctaneGherkinFormatter:gherkin-results/OctaneGherkinResults.xml"},
+@CucumberOptions(plugin="com.hpe.alm.octane.OctaneGherkinFormatter:gherkin-results/OctaneGherkinResults.xml",
 features ="src/test/java/resources",
         monochrome = true,
         glue ={"glue","hooks"})
