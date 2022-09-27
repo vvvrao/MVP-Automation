@@ -30,6 +30,12 @@ public class LoginPage extends SeleniumUtility  {
     @FindBy(xpath = "//*[contains(text(),'Registration')]")
     private WebElement registerTab;
 
+    @FindBy(xpath = "//*[@class='sc-dwfUuu cQtbsq']//..//*[contains(text(),'Login')]")
+    private WebElement LoginWithGoogle;
+
+    @FindBy(xpath = "//*[@class='w1I7fb']//..//*[text()='Aob user']")
+    private WebElement clickonEmail;
+
     @FindBy(xpath = "//*[contains(@class,'sc-idOiZg bwAMjs nav-link')]//..//*[contains(text(),'Acc')]")
     private WebElement accountsTab;
 
@@ -75,6 +81,15 @@ public class LoginPage extends SeleniumUtility  {
     @FindBy(xpath = "//input[contains(@name,'confirmPass')]")
     private WebElement confirmPassTxt;
 
+    @FindBy(xpath = "//input[@name='identifier']")
+    private WebElement EnterGmailaddress;
+
+    @FindBy(xpath = "//input[@name='password']")
+    private WebElement EnterGmailPassword;
+
+    @FindBy(xpath = "//*[@class='VfPpkd-RLmnJb']//..//*[text()='Next']")
+    private WebElement NextButtononGmail;
+
 
     public WebElement btnclick(String btnname) {
 
@@ -100,6 +115,18 @@ public class LoginPage extends SeleniumUtility  {
         clickElement(loginbtn);
     }
 
+    public void login_with_google() throws Exception{
+        java.lang.String gmailusername = readPropertyfile("test.properties", "gmail_Username");
+        java.lang.String Gmailpassword = readPropertyfile("test.properties", "gmail_Password");
+        SendtexttoElement(EnterGmailaddress,gmailusername);
+        Thread.sleep(3000);
+        clickElement(NextButtononGmail);
+        Thread.sleep(3000);
+        SendtexttoElement(EnterGmailPassword,Gmailpassword);
+        Thread.sleep(3000);
+        clickElement(NextButtononGmail);
+    }
+
     
    public void login_application_withglobaluser() throws Exception {
 	   
@@ -114,6 +141,14 @@ public class LoginPage extends SeleniumUtility  {
     public void clickregisterTab(){
 
             clickElement(registerTab);
+    }
+
+    public void clickloginwithGoogle(){
+        clickElement(LoginWithGoogle);
+    }
+
+    public void clickonemail(){
+        clickElement(clickonEmail);
     }
 
 //    public void clickaccountsTab() throws InterruptedException {

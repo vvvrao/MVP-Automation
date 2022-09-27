@@ -8,9 +8,9 @@
       </list>
     </option>
   </component>
-  <component name="OctanePluginConnectionSettings" Url="https://internal.almoctane.com" SharedSpace="185002" WorkSpace="3001" User="vandhita.rao@dxc.com" SSO="false" />
-  <component name="OctanePluginState" SEARCH_HISTORY="{&quot;SEARCH_HISTORY&quot;:[]}" OPEN_TABS="{&quot;openDetailTabs&quot;:[]}" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="openjdk-17" project-jdk-type="JavaSDK">
+  <component name="OctanePluginConnectionSettings" Url="https://internal.almoctane.com" SharedSpace="185002" WorkSpace="3001" User="a.suhasamrapurkar@dxc.com" SSO="false" />
+  <component name="OctanePluginState" OPEN_TABS="{&quot;openDetailTabs&quot;:[]}" SEARCH_HISTORY="{&quot;SEARCH_HISTORY&quot;:[]}" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" default="true" project-jdk-name="18" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

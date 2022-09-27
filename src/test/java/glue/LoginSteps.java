@@ -8,8 +8,12 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.LoginPage;
 
+import java.util.Iterator;
+import java.util.Set;
+
 import static org.junit.Assert.assertTrue;
 import static utility.SeleniumUtility.driver;
+import static utility.SeleniumUtility.jswait;
 
 
 public class LoginSteps{
@@ -105,5 +109,35 @@ public class LoginSteps{
 
         assertTrue(true);
     }
+
+    @Given("user navigates to advantage bank url for social media login")
+    public void user_navigates_to_advantage_bank_url_for_social_media_login() throws Exception {
+        lp.launchApplicationforsocialMedia();
+        assertTrue(true);
+    }
+
+    @And("User click on Google tab")
+    public void User_click_on_Google_tab(){
+         lp.clickloginwithGoogle();
+         assertTrue(true);
+    }
+
+    @And("user enters their respective Gmail address and password and click on next")
+    public void user_enters_their_respective_Gmail_address_and_password_and_click_on_next() throws Exception {
+         Thread.sleep(9000);
+         Set <String> windows = driver.getWindowHandles();
+         Iterator <String> it = windows.iterator();
+         String p = it.next();
+         String c = it.next();
+         driver.switchTo().window(c);
+         jswait();
+         lp.login_with_google();
+//         lp.clickonemail();
+         assertTrue(true);
+         jswait();
+         driver.switchTo().window(p);
+    }
+
+
 
 }

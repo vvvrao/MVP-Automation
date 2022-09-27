@@ -56,6 +56,15 @@ public class SeleniumUtility {
         driver.get(webURL);
     }
 
+    public static void launchApplicationforsocialMedia() throws Exception {
+        webURL = readPropertyfile("test.properties", "web_URL_for_google");
+        System.out.println(webURL);
+
+        driver.manage().window().maximize();
+        driver.get(webURL);
+        jswait();
+    }
+
     /*
      * method to get property value from key-value pair and specify the relative
      * path for properties file
