@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="AOB_Automation" />
+        <module name="MVP-Automation" />
       </profile>
     </annotationProcessing>
   </component>

@@ -32,8 +32,10 @@ public class LoginSteps{
      }
 
          @Then("A default Log in window of Advantage Bank Portal Should Open")
-         public void a_default_log_in_window_of_advantage_bank_portal_should_open() {
+         public void a_default_log_in_window_of_advantage_bank_portal_should_open() throws InterruptedException {
              lp.validate_logo();
+             jswait();
+             Thread.sleep(3000);
 
              assertTrue(true);
 
@@ -139,5 +141,37 @@ public class LoginSteps{
     }
 
 
+    @Then("user clicks on profile icon")
+    public void userClicksOnProfileIcon() {
+        lp.clickonprofileicon();
+        assertTrue(true);
 
+    }
+
+    @Then("user clicks on Management Console in the list")
+    public void userClicksOnManagementConsoleInTheList() throws InterruptedException {
+        lp.clickonmanagementconsole();
+        Thread.sleep(3000);
+        assertTrue(true);
+    }
+
+    @Then("a new tab should open")
+    public void aNewTabShouldOpen(){
+         lp.switchTab(1);
+         lp.clickonmerchantusermanagement();
+
+    }
+
+    @Then("user clicks on merchants")
+    public void userClicksOnMerchants() throws InterruptedException {
+        lp.clickonmerchants();
+        assertTrue(true);
+        Thread.sleep(3000);
+    }
+
+    @Then("a list of merchants should appear for the user")
+    public void aListOfMerchantsShouldAppearForTheUser() throws InterruptedException {
+         lp.validateelements();
+         Thread.sleep(3000);
+    }
 }

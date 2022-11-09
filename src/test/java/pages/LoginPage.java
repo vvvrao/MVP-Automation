@@ -4,6 +4,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import utility.SeleniumUtility;
 
 
@@ -32,6 +33,22 @@ public class LoginPage extends SeleniumUtility  {
 
     @FindBy(xpath = "//*[@class='sc-dwfUuu cQtbsq']//..//*[contains(text(),'Login')]")
     private WebElement LoginWithGoogle;
+
+    @FindBy(xpath = "//button[contains(@class,'sc-bdfBQB hAGdRi')]")
+    private WebElement profileicon;
+    //*[@id='root']/div/header/div/div/div/button/span
+
+    @FindBy(xpath = "(//li[contains(@class,'MuiButtonBase-root MuiListItem-root')])[2]")
+    private WebElement managementconsole;
+
+    @FindBy(how = How.XPATH, using="(//span[@class='content'])[2]") private WebElement person;
+    @FindBy(how = How.XPATH, using="(//span[@class='content'])[3]") private WebElement Merchants;
+
+    @FindBy(how = How.XPATH, using="//div[@class='mat-sort-header-content ng-tns-c107-12']") private WebElement name;
+    @FindBy(how = How.XPATH, using="//div[@class='mat-sort-header-content ng-tns-c107-13']") private WebElement type;
+    @FindBy(how = How.XPATH, using="//div[@class='mat-sort-header-content ng-tns-c107-14']") private WebElement bankBic;
+    @FindBy(how = How.XPATH, using="//div[@class='mat-sort-header-content ng-tns-c107-15']") private WebElement bankName;
+    @FindBy(how = How.XPATH, using="//div[@class='mat-sort-header-content ng-tns-c107-16']") private WebElement description;
 
     @FindBy(xpath = "//*[@class='w1I7fb']//..//*[text()='Aob user']")
     private WebElement clickonEmail;
@@ -145,6 +162,31 @@ public class LoginPage extends SeleniumUtility  {
 
     public void clickloginwithGoogle(){
         clickElement(LoginWithGoogle);
+    }
+
+    public void clickonprofileicon(){
+        clickElement(profileicon);
+    }
+
+    public void clickonmanagementconsole(){
+        clickElement(managementconsole);
+    }
+
+    public void clickonmerchantusermanagement(){
+        clickElement(person);
+    }
+
+    public void clickonmerchants(){
+        clickElement(Merchants);
+    }
+
+    public void validateelements(){
+        iselementDisplayed(Merchants);
+        iselementDisplayed(name);
+        iselementDisplayed(type);
+        iselementDisplayed(bankBic);
+        iselementDisplayed(bankName);
+        iselementDisplayed(description);
     }
 
     public void clickonemail(){
