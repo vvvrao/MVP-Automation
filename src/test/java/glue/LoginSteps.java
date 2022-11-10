@@ -132,11 +132,13 @@ public class LoginSteps{
          String p = it.next();
          String c = it.next();
          driver.switchTo().window(c);
+         Thread.sleep(9000);
          jswait();
          lp.login_with_google();
 //         lp.clickonemail();
          assertTrue(true);
          jswait();
+         Thread.sleep(3000);
          driver.switchTo().window(p);
     }
 
